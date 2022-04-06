@@ -4,22 +4,33 @@ using UnityEngine;
 
 public class Boundaries : MonoBehaviour
 {
-    public BoxCollider2D myCollider;
+    BoxCollider2D myCollider;
+
+    void Start()
+    {
+        myCollider = gameObject.GetComponent<BoxCollider2D>();
+    }
+
 
     void OnTriggerExit2D(Collider2D other)
     {
         var exitingObj = other.transform;
-        var position = exitingObj.position;
+        var position1 = exitingObj.position;
 
         var boundaryPosition = transform.position;
         var colliderSize = myCollider.bounds.extents;
 
-        if (position.x > (boundaryPosition.x + colliderSize.x) || position.x < (boundaryPosition.x - colliderSize.x))
-            position.x = -position.x;
+        if (position1.x > (boundaryPosition.x + colliderSize.x) || position1.x < (boundaryPosition.x - colliderSize.x))
+        {
+            position1.x = position1.x * (-1);
+        }
 
-        if (position.y > (boundaryPosition.y + colliderSize.y) || position.y < (boundaryPosition.y - colliderSize.y))
-            position.y = -position.y;
+        if (position1.y > (boundaryPosition.y + colliderSize.y) || position1.y < (boundaryPosition.y - colliderSize.y))
+        {
+            position1.y = position1.y * (-1);
+        }
 
-        exitingObj.position = position;
+
+        exitingObj.position = position1;
     }
 }
