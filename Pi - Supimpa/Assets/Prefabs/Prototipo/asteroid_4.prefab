@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3585725520332422832
+--- !u!1 &1791569096610748845
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3585725520332422837}
-  - component: {fileID: 3585725520332422836}
-  - component: {fileID: 3585725520332422839}
-  - component: {fileID: 3585725520332422838}
-  - component: {fileID: 3585725520332422833}
+  - component: {fileID: 2808081518612062039}
+  - component: {fileID: 7477209190615122317}
+  - component: {fileID: 10617774029184438}
+  - component: {fileID: 3483867800820699206}
+  - component: {fileID: 3454444393417574315}
   m_Layer: 8
-  m_Name: asteroid_1
+  m_Name: asteroid_4
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3585725520332422837
-Transform:
+--- !u!224 &2808081518612062039
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3585725520332422832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.32, y: 6.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_GameObject: {fileID: 1791569096610748845}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 10, y: 10, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3585725520332422836
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 8.98975, y: 2.5200763}
+  m_SizeDelta: {x: 1.0666667, y: 1.0666667}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &7477209190615122317
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3585725520332422832}
+  m_GameObject: {fileID: 1791569096610748845}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,8 +80,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -6584425368374888142, guid: 5ef9ee8febcc5c249b029ccab1ba57ff, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -4803098668745932580, guid: 5ef9ee8febcc5c249b029ccab1ba57ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,13 +92,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &3585725520332422839
+--- !u!58 &10617774029184438
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3585725520332422832}
+  m_GameObject: {fileID: 1791569096610748845}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -102,15 +107,15 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.19226891
---- !u!50 &3585725520332422838
+  m_Radius: 0.24839285
+--- !u!50 &3483867800820699206
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3585725520332422832}
+  m_GameObject: {fileID: 1791569096610748845}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -124,18 +129,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3585725520332422833
+--- !u!114 &3454444393417574315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3585725520332422832}
+  m_GameObject: {fileID: 1791569096610748845}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23d096fd89e5c8644865edc5626f1a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 3585725520332422838}
-  movementSpeed: 5
+  rb: {fileID: 3483867800820699206}
+  movementSpeed: 50
   rotationSpeed: 200

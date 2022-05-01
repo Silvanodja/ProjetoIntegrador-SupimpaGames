@@ -8,6 +8,7 @@ public class InteractionSystem : MonoBehaviour
     public Transform detectionPoint;
     public float detectionRadius = 1f;
     public LayerMask detectionLayer;
+    public GameObject miniGameAsteroids;
 
     void Update()
     {
@@ -15,7 +16,8 @@ public class InteractionSystem : MonoBehaviour
         {
             if (InteractInput())
             {
-                SceneManager.LoadScene("MarcosA");
+                //SceneManager.LoadScene("MarcosA");
+                miniGameAsteroids.SetActive(true);
             }
         }
     }

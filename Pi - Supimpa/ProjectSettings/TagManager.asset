@@ -7,6 +7,7 @@ TagManager:
   - Asteroid
   - Bullet
   - Location
+  - Canvas
   layers:
   - Default
   - TransparentFX
@@ -15,11 +16,11 @@ TagManager:
   - Water
   - UI
   - Interaction
-  - Player
+  - Nave
   - Asteroid
   - Bullet
   - Boundary
-  - 
+  - Player
   - 
   - 
   - 

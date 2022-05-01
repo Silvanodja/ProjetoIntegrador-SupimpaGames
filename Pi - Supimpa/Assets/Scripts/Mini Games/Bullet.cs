@@ -6,9 +6,15 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed = 5f;
 
-    void Start()
+    void OnEnable()
     {
-        Destroy(gameObject, 1.4f);
+        StartCoroutine(DisableRoutine());
+    }
+
+    IEnumerator DisableRoutine()
+    {
+        yield return new WaitForSeconds(1.4f);
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -20,9 +26,9 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Asteroid")
         {
-           // other.gameObject.SetActive(false);
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+            other.gameObject.SetActive(false);
+            
+            gameObject.SetActive(false);
         }
     }
 }

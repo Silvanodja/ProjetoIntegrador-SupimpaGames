@@ -1,49 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class SpawnAsteroids : MonoBehaviour
 {
-    List<GameObject> asteroidsNaTela = new List<GameObject>();
-    List<int> atual = new List<int>();
-    public string[] nomes;
-    public GameObject[] aparece;
-    float spawn = 1f;    
-    public GameObject asteroid;
+    public List<GameObject> asteroidsNaTela = new List<GameObject>();
+    List<GameObject> atual = new List<GameObject>();
+    public GameObject pasta;
+    public float timer = 0f;
+    public GameObject left, right;
+    Vector3 pos;
 
-    GameObject left, right;
+    public GameObject miniGame, spaceShip;
 
-    private void Awake()
-    {
-        left = new GameObject("MinPosition");
-        right = new GameObject("MaxPosition");
-    }
-
+    public float minTimeThisEvent = 20f;
+    public float maxTimeThisEvent = 40f;
 
     void Start()
     {
-        Sorteio();
+        pos = left.transform.position;
+
     }
 
-    void Sorteio()
+
+    private void Awake()
     {
-        Vector3 bottomLeftScreenPoint = Camera.main.ScreenToWorldPoint(new Vector3(0f, 0f, 0f));
-        Vector3 topRightScreenPoint = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0f));
+        for (int j = 0; j < asteroidsNaTela.Count; j++)
+        {
+            pos.x = Random.Range(left.transform.position.x, right.transform.position.x);
 
-        left.transform.position = new Vector3((bottomLeftScreenPoint.x - topRightScreenPoint.x) / 2, topRightScreenPoint.y + 1, 0);
-        right.transform.position = new Vector3((bottomLeftScreenPoint.x - topRightScreenPoint.x) / 2 * -1, topRightScreenPoint.y + 1, 0);
+            var instanceAsteroid = Instantiate(asteroidsNaTela[j]);
 
-        atual.Add(Random.Range(0, nomes.Length));
-        Invoke("Sorteio", spawn);
-        Vector3 pos = left.transform.position;
-        pos.x = Random.Range(left.transform.position.x, right.transform.position.x);
-        asteroid = Instantiate(aparece[atual[atual.Count - 1]], pos, left.transform.rotation);
-        asteroidsNaTela.Add(asteroid);
+            instanceAsteroid.transform.SetParent(pasta.transform);
+
+            instanceAsteroid.SetActive(false);
+            atual.Add(instanceAsteroid);
+        }
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
+    {
+        StartCoroutine(TimerToEnd());
+        spaceShip.transform.position = new Vector3(0, 0, 0);
+        StartCoroutine(Ativar(atual));
+    }
+
+    IEnumerator Ativar(List<GameObject> ativar)
     {
 
+
+        for (int i = 0; i < ativar.Count; i++)
+        {
+            if (!ativar[i].activeInHierarchy)
+            {
+                yield return new WaitForSeconds(timer);
+                ativar[i].transform.position = new Vector3(Random.Range(left.transform.position.x, right.transform.position.x), left.transform.position.y, 0);
+                ativar[i].SetActive(true);
+            }
+
+        }
+    }
+
+    IEnumerator TimerToEnd()
+    {
+        yield return new WaitForSeconds(Random.Range(minTimeThisEvent, maxTimeThisEvent));
+        if (!spaceShip.activeInHierarchy)
+        {
+            Debug.Log("Fracassou");
+        }
+        else
+        {
+            Debug.Log("Evento Concluido");
+            miniGame.SetActive(false);
+        }
     }
 }

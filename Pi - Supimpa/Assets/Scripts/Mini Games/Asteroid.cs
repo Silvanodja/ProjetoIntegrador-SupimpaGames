@@ -8,7 +8,7 @@ public class Asteroid : MonoBehaviour
 
     public float movementSpeed = 50f;
     public float rotationSpeed = 200f;
-
+   
     float rotationDir;
     float rotation;
 
@@ -28,7 +28,7 @@ public class Asteroid : MonoBehaviour
     void Update()
     {
         rotation += rotationDir * Time.smoothDeltaTime * rotationSpeed;
-
+        
     }
 
     //public Sprite[] sprites;
