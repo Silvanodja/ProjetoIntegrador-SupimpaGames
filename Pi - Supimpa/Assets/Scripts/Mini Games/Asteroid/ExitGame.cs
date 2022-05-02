@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ExitGame : MonoBehaviour
 {
-    void Update()
+    public void EndMiniGame(GameObject minigame)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("GabrielMecanics");
-        }
+        minigame.gameObject.SetActive(false);
     }
 }
