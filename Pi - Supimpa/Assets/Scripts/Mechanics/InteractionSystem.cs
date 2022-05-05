@@ -17,10 +17,10 @@ public class InteractionSystem : MonoBehaviour
         {
             if (InteractInput())
             {
-                Debug.Log(MiniGame());
+                //Debug.Log(MiniGame());
                 if (MiniGame())
                 {
-                    Debug.Log("minigame");
+                    //Debug.Log("minigame");
                     gameCamera.miniGameIsPlaying = true;
                 }
             }
@@ -30,7 +30,7 @@ public class InteractionSystem : MonoBehaviour
     bool MiniGame()
     {
         Collider2D hit = InteractionResult();
-        Debug.Log(hit.gameObject.GetComponent<Interactable>());
+        //Debug.Log(hit.gameObject.GetComponent<Interactable>());
         if (hit.gameObject.GetComponent<Interactable>() != null)
         {
             hit.gameObject.GetComponent<Interactable>().miniGame.SetActive(true);

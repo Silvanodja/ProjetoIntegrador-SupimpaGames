@@ -13,6 +13,8 @@ public class SpawnAsteroids : MonoBehaviour
 
     public GameObject miniGame, spaceShip;
 
+    public CameraController gameCamera;
+
     public float minTimeThisEvent = 20f;
     public float maxTimeThisEvent = 40f;
 
@@ -47,6 +49,11 @@ public class SpawnAsteroids : MonoBehaviour
         StartCoroutine(Ativar(atual));
     }
 
+    private void OnDisable()
+    {
+        gameCamera.miniGameIsPlaying = false;
+    }
+
     IEnumerator Ativar(List<GameObject> ativar)
     {
 
@@ -74,6 +81,7 @@ public class SpawnAsteroids : MonoBehaviour
         {
             Debug.Log("Evento Concluido");
             miniGame.SetActive(false);
+            
         }
     }
 }

@@ -1,24 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 
 public class Spaceship : MonoBehaviour
 {
     Rigidbody2D rb;
     public float movementSpeed = 5f;
+    public float rotationSpeed = 160f;
+
+    float rotation;
 
     public ObjectPool bulletPool;
     public Restarter restarter;
     public Health damage;
-
+    public RectTransform Rtransform;
     public GameObject left, right;
 
     public Camera cam;
 
-    Vector2 mousePosition;
+    Vector3 mousePosition;
     Vector2 movement;
+    float angle;
+    Vector3 dir;
 
     void Start()
     {
@@ -28,11 +34,17 @@ public class Spaceship : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+        float v = Input.GetAxisRaw("Vertical");
 
-        Vector2 lookDirection = mousePosition - rb.position;
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
+        rb.AddForce(((Vector2)transform.up * v * movementSpeed) - rb.velocity, ForceMode2D.Force);
+
+        //rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
+
+       // Vector2 lookDirection = mousePosition - rb.position;
+        //float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        //rb.rotation = angle;
+
+        //Rtransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Time.deltaTime));
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -57,10 +69,14 @@ public class Spaceship : MonoBehaviour
     }
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        //movement.x = Input.GetAxisRaw("Horizontal");
+        //movement.y = Input.GetAxisRaw("Vertical");
 
-        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        //mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+        //dir =  Rtransform.position - mousePosition;
+        //dir.Normalize();
+        //angle = Mathf.Rad2Deg * (Mathf.Atan2(dir.x, dir.y));
+
 
         //Vector3 mousePos = Input.mousePosition;
         //mousePos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -68,6 +84,21 @@ public class Spaceship : MonoBehaviour
         //Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
 
         //transform.up = direction;
+
+
+        float rotationDir = 0f;
+        if (Input.GetKey(KeyCode.A))
+        {
+            rotationDir = 1f;
+        }
+        else if(Input.GetKey(KeyCode.D))
+        {
+            rotationDir = -1f;
+        }
+
+        rotation += rotationDir * Time.smoothDeltaTime * rotationSpeed;
+
+        transform.localEulerAngles = new Vector3(0, 0, rotation);
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {

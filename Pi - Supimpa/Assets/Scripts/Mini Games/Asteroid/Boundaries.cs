@@ -36,12 +36,13 @@ public class Boundaries : MonoBehaviour
 
         if (position1.x > (boundaryPosition.x + colliderSize.x) || position1.x < (boundaryPosition.x - colliderSize.x))
         {
-            position1.x = position1.x * (-1);
+            position1.x = position1.x * -1;
         }
 
         if (position1.y > (boundaryPosition.y + colliderSize.y) || position1.y < (boundaryPosition.y - colliderSize.y))
         {
-            position1.y = position1.y * (-1);
+            position1.y = position1.y * -1;
+            print(position1.y);
         }
 
 
