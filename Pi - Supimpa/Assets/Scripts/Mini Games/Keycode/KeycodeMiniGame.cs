@@ -23,7 +23,16 @@ public class KeycodeMiniGame : MonoBehaviour
         hiddenCode.text = code;
         inputCode.text = string.Empty;
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameCamera.miniGameIsPlaying = false;
+            gameObject.SetActive(false);
+        }
+    }
+
     public void ButtonClick(int number)
     {
         if (isReseting)

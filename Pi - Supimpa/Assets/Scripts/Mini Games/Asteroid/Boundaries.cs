@@ -42,7 +42,7 @@ public class Boundaries : MonoBehaviour
         if (position1.y > (boundaryPosition.y + colliderSize.y) || position1.y < (boundaryPosition.y - colliderSize.y))
         {
             position1.y = position1.y * -1;
-            print(position1.y);
+            //print(position1.y);
         }
 
 

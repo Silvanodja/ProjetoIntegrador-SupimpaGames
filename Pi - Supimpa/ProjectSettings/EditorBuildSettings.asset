@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MarcosA.unity
     guid: 7393700590036e44ab1dc2065b651dd0
   - enabled: 1
+    path: Assets/Scenes/GabrielMainMenu.unity
+    guid: 23ea1efffe9717645ad686671ab0c97d
+  - enabled: 1
     path: Assets/Scenes/GabrielTeste.unity
     guid: 9be71254ad0ab0a4c93727098f80ea1f
   m_configObjects: {}

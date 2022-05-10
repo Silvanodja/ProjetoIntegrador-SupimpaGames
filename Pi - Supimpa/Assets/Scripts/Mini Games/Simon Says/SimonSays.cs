@@ -38,6 +38,15 @@ public class SimonSays : MonoBehaviour
         StartCoroutine(ColorOrder());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameCamera.miniGameIsPlaying = false;
+            gameObject.SetActive(false);
+        }
+    }
+
     public void ButtonClickOrder(int button)
     {
         buttonsclicked++;

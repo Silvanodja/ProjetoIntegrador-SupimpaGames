@@ -19,12 +19,12 @@ public class Spaceship : MonoBehaviour
     public RectTransform Rtransform;
     public GameObject left, right;
 
-    public Camera cam;
+    //public Camera cam;
 
-    Vector3 mousePosition;
+    Vector2 mousePosition;
     Vector2 movement;
-    float angle;
-    Vector3 dir;
+    //float angle;
+    //Vector3 dir;
 
     void Start()
     {
@@ -40,11 +40,14 @@ public class Spaceship : MonoBehaviour
 
         //rb.MovePosition(rb.position + movement * movementSpeed * Time.fixedDeltaTime);
 
-       // Vector2 lookDirection = mousePosition - rb.position;
-        //float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+        //Vector2 lookDirection = mousePosition - rb.position;
+
+        //float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Deg2Rad - 90f;
+
         //rb.rotation = angle;
 
-        //Rtransform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle * Time.deltaTime));
+        //transform.LookAt(mousePosition);
+      
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -60,7 +63,7 @@ public class Spaceship : MonoBehaviour
     private void OnEnable()
     {
         
-        gameObject.transform.position = new Vector3(0, 0, 0);
+        //gameObject.transform.position = new Vector3(0, 0, 0);
     }
 
     private void OnDisable()
@@ -72,18 +75,14 @@ public class Spaceship : MonoBehaviour
         //movement.x = Input.GetAxisRaw("Horizontal");
         //movement.y = Input.GetAxisRaw("Vertical");
 
-        //mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        //dir =  Rtransform.position - mousePosition;
-        //dir.Normalize();
-        //angle = Mathf.Rad2Deg * (Mathf.Atan2(dir.x, dir.y));
+        //mousePosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
+        //float angleRad = Mathf.Atan2(mousePosition.y - transform.position.y, mousePosition.x - transform.position.x);
 
-        //Vector3 mousePos = Input.mousePosition;
-        //mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        //float angleDeg = (180 / Mathf.PI) * angleRad;
 
-        //Vector2 direction = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+        //transform.rotation = Quaternion.Euler(0, 0, angleDeg);
 
-        //transform.up = direction;
 
 
         float rotationDir = 0f;
@@ -91,7 +90,7 @@ public class Spaceship : MonoBehaviour
         {
             rotationDir = 1f;
         }
-        else if(Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             rotationDir = -1f;
         }
