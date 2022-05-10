@@ -23,6 +23,7 @@ public class Asteroid : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = movementSpeed * direction;
+
     }
 
     void Update()
