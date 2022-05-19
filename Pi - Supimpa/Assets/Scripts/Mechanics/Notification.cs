@@ -25,6 +25,7 @@ public class Notification : MonoBehaviour
     public GameObject notificationPrefab;
     Vector3 initialPosition;
 
+
     void Start()
     {
         initialPosition = new Vector3(notificationUI.transform.position.x + 155,

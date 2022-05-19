@@ -11,9 +11,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MarcosA.unity
     guid: 7393700590036e44ab1dc2065b651dd0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GabrielMainMenu.unity
     guid: 23ea1efffe9717645ad686671ab0c97d
+  - enabled: 1
+    path: Assets/Aula_Photon/Scenes/Connection.unity
+    guid: 2df4d53fd0659b8438273db711bc0e99
+  - enabled: 1
+    path: Assets/Aula_Photon/Scenes/Lobby.unity
+    guid: fd3993cc006caec4aaa1534288cb4f51
   - enabled: 1
     path: Assets/Scenes/GabrielTeste.unity
     guid: 9be71254ad0ab0a4c93727098f80ea1f

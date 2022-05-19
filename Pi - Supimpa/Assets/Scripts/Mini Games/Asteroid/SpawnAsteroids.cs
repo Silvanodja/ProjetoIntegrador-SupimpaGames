@@ -45,7 +45,6 @@ public class SpawnAsteroids : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(TimerToEnd());
-        spaceShip.transform.position = new Vector3(0, 0, 0);
         StartCoroutine(Ativar(atual));
     }
 

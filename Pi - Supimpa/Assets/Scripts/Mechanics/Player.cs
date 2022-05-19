@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using Photon.Pun;
 public class Player : MonoBehaviour
 {
     public float speed = 10;
@@ -10,8 +10,11 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI locationText;
     Animator anim;
 
+    private PhotonView view;
+
     void Start()
     {
+        view = GetComponent<PhotonView>();
         physics = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -20,7 +23,8 @@ public class Player : MonoBehaviour
     {
         //Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
-
+if (view.IsMine)
+        {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
@@ -42,6 +46,7 @@ public class Player : MonoBehaviour
         else if (horizontal > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+        }
         }
     }
 
