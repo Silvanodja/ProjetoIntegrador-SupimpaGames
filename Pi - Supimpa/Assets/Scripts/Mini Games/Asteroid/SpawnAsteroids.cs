@@ -17,35 +17,41 @@ public class SpawnAsteroids : MonoBehaviour
 
     public float minTimeThisEvent = 20f;
     public float maxTimeThisEvent = 40f;
-
+    Vector3 extremidades;
     void Start()
     {
-        pos = left.transform.position;
-
+        // pos = left.transform.position;
     }
 
-
+    private void Update()
+    {
+        extremidades = Camera.main.WorldToViewportPoint(transform.position);
+    }
     private void Awake()
     {
-        for (int j = 0; j < asteroidsNaTela.Count; j++)
+       for (int j = 0; j < asteroidsNaTela.Count; j++)
         {
-            pos.x = Random.Range(left.transform.position.x, right.transform.position.x);
+            //pos.x = Random.Range(extremidades.x = 0, extremidades.x = 1);
 
             var instanceAsteroid = Instantiate(asteroidsNaTela[j]);
+            
 
             instanceAsteroid.transform.SetParent(pasta.transform);
 
             instanceAsteroid.SetActive(false);
             atual.Add(instanceAsteroid);
         }
-
-
     }
 
     private void OnEnable()
     {
+        for (int i = 0; i < atual.Count; i++)
+        {
+            atual[i].transform.localScale = new Vector2(1, 1);
+        }
         StartCoroutine(TimerToEnd());
         StartCoroutine(Ativar(atual));
+
     }
 
     private void OnDisable()
@@ -56,15 +62,15 @@ public class SpawnAsteroids : MonoBehaviour
     IEnumerator Ativar(List<GameObject> ativar)
     {
 
-
         for (int i = 0; i < ativar.Count; i++)
         {
-            if (!ativar[i].activeInHierarchy)
-            {
+        //Vector3 spawn = new Vector3(Random.Range(extremidades.x = 0, extremidades.x = 1), 0.9f, 1);
+            //if (!ativar[i].activeInHierarchy)
+            //{
                 yield return new WaitForSeconds(timer);
-                ativar[i].transform.position = new Vector3(Random.Range(left.transform.position.x, right.transform.position.x), left.transform.position.y, 0);
+                //ativar[i].transform.position = Camera.main.ViewportToWorldPoint(spawn);
                 ativar[i].SetActive(true);
-            }
+            //}
 
         }
     }

@@ -5,27 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class Restarter : MonoBehaviour
 {
-    public float moveSpeed= 5f;
-
-    Rigidbody2D rb;
-
-    Vector2 movement;
-    Vector2 mousePosition;
-
-    private void Start() {
-        rb = GetComponent<Rigidbody2D>();
+    public GameObject nave, IinteriorDaNave, spawnAsteroids, vida, municao, player, arredores;
+    public bool ativado = false;
+    int oldMask = Camera.main.cullingMask;
+    private void Start()
+    {
+        player = GetComponent<SpawnManager>().gm;
     }
-    private void Update() {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+    private void Update()
+    {
+        if (ativado == false)
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                IinteriorDaNave.SetActive(false);
+                nave.SetActive(true);
+                municao.SetActive(true);
+                spawnAsteroids.SetActive(true);
+                vida.SetActive(true);
+                nave.GetComponent<Spaceship>().enabled = true;
+                Camera.main.orthographicSize = 170;
+                Camera.main.cullingMask = ~(1 << 13);
+                print(Camera.main.cullingMask);
 
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //player.GetComponent<Player>().enabled = false;
+                ativado = true;
+            }
+        }
+        else if (ativado == true)
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                IinteriorDaNave.SetActive(true);
+                nave.SetActive(false);
+                municao.SetActive(false);
+                spawnAsteroids.SetActive(false);
+                vida.SetActive(false);
+                nave.GetComponent<Spaceship>().enabled = false;
+                Camera.main.orthographicSize = 7;
+                Camera.main.cullingMask = oldMask;
+                Camera.main.transform.position = new Vector3(0, 0, -10);
+                //player.GetComponent<Player>().enabled = true;
+                ativado = false;
+            }
+        }
     }
-    private void FixedUpdate() {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-        Vector2 lookDir = mousePosition - rb.position;
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = angle;
-    }
 }
+

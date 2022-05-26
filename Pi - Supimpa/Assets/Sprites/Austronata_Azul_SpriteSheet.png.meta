@@ -1,0 +1,827 @@
+fileFormatVersion: 2
+guid: 7a973e86c8bf4c14888dc49922382411
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 328
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5780a5d45f0e84c88f7d50312c17b7
+      internalID: -1657061303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 328
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc5a72cecbdb75439ac584a89c5005e
+      internalID: -143499066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 328
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebf51effb7a302458357df04b07e7ed
+      internalID: 778089485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 328
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6141a56907ec9ab4d894791f9c24933e
+      internalID: -1851790826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 327
+        width: 40
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0759f72dc157f45af08366dd8d28f4
+      internalID: 2112474640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 327
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd8c04e9c033234f92465c0b3b736e6
+      internalID: -1119085251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 264
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be208a7bcd1c73b45b8c2c23c621a0c2
+      internalID: -1942561066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 264
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3baa3aa2d9f7348489422caa87af077b
+      internalID: -1256364758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 264
+        width: 35
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abe4b4bf2facdfa4cb506cfaec64eefe
+      internalID: 131870402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 264
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50a62ac29d03894cb6ebb083b346539
+      internalID: 313773858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 264
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54eaa7f823ffc4d4b9c74f5ecf051f8c
+      internalID: -1637736736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 264
+        width: 35
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f438ce3bfa36c94eb64649624b94902
+      internalID: 1635239463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 200
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d282aa87015b710449df03ddc36d14a0
+      internalID: -739410591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 200
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 122f0272e71d74646a69199ed90c24e0
+      internalID: -1655997248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 200
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2d5fc2f22bd6141a1d1dbf3a1bdb30
+      internalID: -1282702937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 200
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4327dbe3782b8074f8e30d86682f9926
+      internalID: -1578875730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 200
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baeebcfe68ee5ae4aa16d56f7834f2b3
+      internalID: -20438604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 200
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a90238f6eb25849afc4b7f6fcdda7a
+      internalID: 1037717788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 200
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c12cca1de182bb147a1e02a79ac08af0
+      internalID: -581669472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 200
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 336187fe5b44aa2498e78806019b1df5
+      internalID: -813985145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_20
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 135
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f0ca973370d0cd46850c607055f7a12
+      internalID: -770262267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_21
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 135
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2f9146ba75db947b7bd05e0a78e294
+      internalID: 1411236838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 135
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1600e1bc083c404dba233790f44d7c1
+      internalID: -2078325937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 135
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304014d82189dd1409bc6c81cd04c4f4
+      internalID: -922596623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 72
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d673d6ab2361444daa2c138cabcd8d1
+      internalID: -1294102016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_26
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 72
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca8198c796e2ef46a06c60de60632cc
+      internalID: -310727493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_27
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 72
+        width: 22
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9185714db98cf3b4caf29cf94ea36c02
+      internalID: 1228168838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_28
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 72
+        width: 22
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c897a25abb7fa14fa18e8be3b41a1b3
+      internalID: -851117008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_29
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 7
+        width: 43
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be51e1ba8134e94f8b8df5e4e276faf
+      internalID: -2112399647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_30
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 7
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db87bd0fe30b4a4ea3bd6a619205909
+      internalID: 1430297081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_31
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 7
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24d908b51cbe894e8f7bd75db060dbf
+      internalID: -126730611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Austronata_Azul_SpriteSheet_32
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 8
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c96053e363245240bed657dd394f35a
+      internalID: -562064469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a5121cc476eb7e842997fe9484bb0e23
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Austronata_Azul_SpriteSheet_11: 1635239463
+      Austronata_Azul_SpriteSheet_16: -20438604
+      Austronata_Azul_SpriteSheet_30: 1430297081
+      Austronata_Azul_SpriteSheet_17: 1037717788
+      Austronata_Azul_SpriteSheet_15: -1578875730
+      Austronata_Azul_SpriteSheet_22: -2078325937
+      Austronata_Azul_SpriteSheet_19: -813985145
+      Austronata_Azul_SpriteSheet_6: -1942561066
+      Austronata_Azul_SpriteSheet_2: 778089485
+      Austronata_Azul_SpriteSheet_7: -1256364758
+      Austronata_Azul_SpriteSheet_24: 1824266074
+      Austronata_Azul_SpriteSheet_21: 1411236838
+      Austronata_Azul_SpriteSheet_0: -1657061303
+      Austronata_Azul_SpriteSheet_13: -1655997248
+      Austronata_Azul_SpriteSheet_9: 313773858
+      Austronata_Azul_SpriteSheet_20: -770262267
+      Austronata_Azul_SpriteSheet_12: -739410591
+      Austronata_Azul_SpriteSheet_29: -2112399647
+      Austronata_Azul_SpriteSheet_31: -126730611
+      Austronata_Azul_SpriteSheet_1: -143499066
+      Austronata_Azul_SpriteSheet_5: -1119085251
+      Austronata_Azul_SpriteSheet_8: 131870402
+      Austronata_Azul_SpriteSheet_23: -922596623
+      Austronata_Azul_SpriteSheet_32: -562064469
+      Austronata_Azul_SpriteSheet_26: -310727493
+      Austronata_Azul_SpriteSheet_4: 2112474640
+      Austronata_Azul_SpriteSheet_25: -1294102016
+      Austronata_Azul_SpriteSheet_28: -851117008
+      Austronata_Azul_SpriteSheet_18: -581669472
+      Austronata_Azul_SpriteSheet_14: -1282702937
+      Austronata_Azul_SpriteSheet_27: 1228168838
+      Austronata_Azul_SpriteSheet_3: -1851790826
+      Austronata_Azul_SpriteSheet_10: -1637736736
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
