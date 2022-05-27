@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IPunObservable
 {
     public float speed = 10;
     Rigidbody2D physics;
@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     Animator anim;
 
     private PhotonView view;
+
+    float horizontal;
+    float vertical;
 
     void Start()
     {
@@ -25,8 +28,8 @@ public class Player : MonoBehaviour
 
         if (view.IsMine)
         {
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
+            horizontal = Input.GetAxisRaw("Horizontal");
+            vertical = Input.GetAxisRaw("Vertical");
 
             physics.velocity = new Vector2(speed * horizontal, speed * vertical);
 
@@ -76,20 +79,21 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        // switch (collision.tag)
-        // {
-        //     case "Location":
-        //         if (!locationText.gameObject.activeInHierarchy)
-        //         {
-        //             locationText.enabled = true;
-        //         }
-        //         locationText.text = collision.GetComponent<Locations>().locationName;
-        //         break;
-        //     default:
-        //         break;
-        // }
+        if (stream.IsWriting)
+        {
+            stream.SendNext(anim.GetBool("Front"));
+            stream.SendNext(anim.GetBool("Back"));
+            stream.SendNext(anim.GetBool("Side"));
+            stream.SendNext(anim.GetBool("Walking"));
+        }
+        else
+        {
+            anim.SetBool("Front", (bool)stream.ReceiveNext());
+            anim.SetBool("Back", (bool)stream.ReceiveNext());
+            anim.SetBool("Side", (bool)stream.ReceiveNext());
+            anim.SetBool("Walking", (bool)stream.ReceiveNext());
+        }
     }
 }
