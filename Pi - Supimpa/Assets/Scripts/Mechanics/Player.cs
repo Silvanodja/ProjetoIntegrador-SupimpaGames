@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-public class Player : MonoBehaviour, IPunObservable
+public class Player : MonoBehaviour //, IPunObservable
 {
     public float speed = 10;
     Rigidbody2D physics;
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour, IPunObservable
 
             physics.velocity = new Vector2(speed * horizontal, speed * vertical);
 
+        }
             if (horizontal != 0 || vertical != 0)
             {
                 anim.SetBool("Walking", true);
@@ -77,23 +78,22 @@ public class Player : MonoBehaviour, IPunObservable
             {
                 transform.localScale = new Vector3(1, 1, 1);
             }
-        }
     }
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(anim.GetBool("Front"));
-            stream.SendNext(anim.GetBool("Back"));
-            stream.SendNext(anim.GetBool("Side"));
-            stream.SendNext(anim.GetBool("Walking"));
-        }
-        else
-        {
-            anim.SetBool("Front", (bool)stream.ReceiveNext());
-            anim.SetBool("Back", (bool)stream.ReceiveNext());
-            anim.SetBool("Side", (bool)stream.ReceiveNext());
-            anim.SetBool("Walking", (bool)stream.ReceiveNext());
-        }
-    }
+    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    //{
+    //    if (stream.IsWriting)
+    //    {
+    //        stream.SendNext(anim.GetBool("Front"));
+    //        stream.SendNext(anim.GetBool("Back"));
+    //        stream.SendNext(anim.GetBool("Side"));
+    //        stream.SendNext(anim.GetBool("Walking"));
+    //    }
+    //    else
+    //    {
+    //        anim.SetBool("Front", (bool)stream.ReceiveNext());
+    //        anim.SetBool("Back", (bool)stream.ReceiveNext());
+    //        anim.SetBool("Side", (bool)stream.ReceiveNext());
+    //        anim.SetBool("Walking", (bool)stream.ReceiveNext());
+    //    }
+    //}
 }
