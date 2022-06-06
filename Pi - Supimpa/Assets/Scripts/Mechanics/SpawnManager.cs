@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject playerPrefab, nave, miniGame;
+    public GameObject playerPrefab, nave, miniGame, playerDetect;
 
     public Transform spawnPoint;
     public Camera cam;
@@ -20,6 +20,8 @@ public class SpawnManager : MonoBehaviour
 
         pos.z = -10;
         gm = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, Quaternion.identity);
+        playerDetect.transform.SetParent(gm.transform);
+        playerDetect.transform.position = gm.transform.position;
         //cam.transform.SetParent(gm.transform);
         //gm.transform.SetParent(nave.transform);
     }
