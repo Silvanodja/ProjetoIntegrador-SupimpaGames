@@ -5,15 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/GabrielMecanics.unity
-    guid: 8e98d390533c28e46a8250c6aa8d32c7
-  - enabled: 0
-    path: Assets/Scenes/MarcosA.unity
-    guid: 7393700590036e44ab1dc2065b651dd0
-  - enabled: 0
-    path: Assets/Scenes/GabrielMainMenu.unity
-    guid: 23ea1efffe9717645ad686671ab0c97d
   - enabled: 1
     path: Assets/Aula_Photon/Scenes/Connection.unity
     guid: 2df4d53fd0659b8438273db711bc0e99

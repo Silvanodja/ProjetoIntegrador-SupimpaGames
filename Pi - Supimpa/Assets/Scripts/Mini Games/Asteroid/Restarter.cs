@@ -7,10 +7,11 @@ public class Restarter : MonoBehaviour
 {
     public GameObject nave, IinteriorDaNave, spawnAsteroids, vida, municao, player, arredores;
     public bool ativado = false;
-    int oldMask = Camera.main.cullingMask;
+    int oldMask;
     private void Start()
     {
         player = GetComponent<SpawnManager>().gm;
+        oldMask = Camera.main.cullingMask;
     }
     private void Update()
     {
