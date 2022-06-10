@@ -42,6 +42,8 @@ public class SimonSays : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+            FindObjectOfType<AudioManager>().Play("MainTheme");
             gameCamera.miniGameIsPlaying = false;
             gameObject.SetActive(false);
         }
@@ -119,6 +121,8 @@ public class SimonSays : MonoBehaviour
 
         if (won)
         {
+            FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+            FindObjectOfType<AudioManager>().Play("MainTheme");
             gameCamera.miniGameIsPlaying = false;
             gameObject.SetActive(false);
         }

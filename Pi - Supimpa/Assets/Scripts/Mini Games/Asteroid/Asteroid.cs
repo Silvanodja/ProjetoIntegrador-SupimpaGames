@@ -17,7 +17,6 @@ public class Asteroid : MonoBehaviour
     Vector3 extremidades;
     void Start()
     {
-        
         rb = GetComponent<Rigidbody2D>();
         rotationDir = Random.value > 0.5f ? -1f : 1f;
         direction = (Camera.main.transform.position - transform.position).normalized;

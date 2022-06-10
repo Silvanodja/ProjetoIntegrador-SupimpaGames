@@ -19,6 +19,8 @@ public class Restarter : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
+                FindObjectOfType<AudioManager>().Play("MiniGameTheme");
+                FindObjectOfType<AudioManager>().Pause("MainTheme");
                 IinteriorDaNave.SetActive(false);
                 nave.SetActive(true);
                 municao.SetActive(true);
@@ -37,6 +39,8 @@ public class Restarter : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
+                FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+                FindObjectOfType<AudioManager>().Play("MainTheme");
                 IinteriorDaNave.SetActive(true);
                 nave.SetActive(false);
                 municao.SetActive(false);

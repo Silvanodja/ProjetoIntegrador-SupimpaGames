@@ -28,6 +28,8 @@ public class KeycodeMiniGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+            FindObjectOfType<AudioManager>().Play("MainTheme");
             gameCamera.miniGameIsPlaying = false;
             gameObject.SetActive(false);
         }
@@ -64,6 +66,8 @@ public class KeycodeMiniGame : MonoBehaviour
         isReseting = false;
         gameObject.SetActive(false);
         gameCamera.miniGameIsPlaying = false;
+        FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+        FindObjectOfType<AudioManager>().Play("MainTheme");
     }
 
     private IEnumerator ResetCodeFail()

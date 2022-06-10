@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        FindObjectOfType<AudioManager>().Play("MainTheme");
         pos.z = -10;
         gm = PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, Quaternion.identity);
         playerDetect.transform.SetParent(gm.transform);

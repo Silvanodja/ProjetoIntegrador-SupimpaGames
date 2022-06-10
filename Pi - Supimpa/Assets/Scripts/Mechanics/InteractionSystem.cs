@@ -10,6 +10,14 @@ public class InteractionSystem : MonoBehaviour
     public LayerMask detectionLayer;
     //public GameObject miniGameAsteroids;
     public CameraController gameCamera;
+    public bool hasWeapon;
+
+    Weapon gun;
+
+    private void Start()
+    {
+        gun = FindObjectOfType<Weapon>();
+    }
 
     void Update()
     {
@@ -22,6 +30,22 @@ public class InteractionSystem : MonoBehaviour
                 {
                     //Debug.Log("minigame");
                     gameCamera.miniGameIsPlaying = true;
+                    FindObjectOfType<AudioManager>().Play("MiniGameTheme");
+                    FindObjectOfType<AudioManager>().Pause("MainTheme");
+                }
+
+                else if (WeaponPickUp())
+                {
+                    if (!hasWeapon && gun.gunCount > 0)
+                    {
+                        hasWeapon = true;
+                        gun.gunCount--;
+                    }
+                    else if (hasWeapon)
+                    {
+                        hasWeapon = false;
+                        gun.gunCount++;
+                    }
                 }
             }
         }
@@ -38,12 +62,26 @@ public class InteractionSystem : MonoBehaviour
         }
         else
         {
-            hit.gameObject.SetActive(false);
+            //hit.gameObject.SetActive(false);
             return false;
         }
     }
 
-    Collider2D InteractionResult()
+    bool WeaponPickUp()
+    {
+        Collider2D hit = InteractionResult();
+
+        if (hit.gameObject.GetComponent<Weapon>() != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public Collider2D InteractionResult()
     {
         return Physics2D.OverlapCircle(detectionPoint.position, detectionRadius, detectionLayer);
     }

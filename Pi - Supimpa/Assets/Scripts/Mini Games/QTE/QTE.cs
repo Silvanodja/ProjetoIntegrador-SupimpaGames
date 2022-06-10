@@ -83,6 +83,8 @@ public class QTE : MonoBehaviour
         else
         {
             timer = 0;
+            FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+            FindObjectOfType<AudioManager>().Play("MainTheme");
             gameCamera.miniGameIsPlaying = false;
             gameObject.SetActive(false);
         }

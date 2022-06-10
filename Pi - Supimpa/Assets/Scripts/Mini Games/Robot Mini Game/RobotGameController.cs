@@ -43,6 +43,8 @@ public class RobotGameController : MonoBehaviour
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(0.5f);
+        FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+        FindObjectOfType<AudioManager>().Play("MainTheme");
         gameCamera.miniGameIsPlaying = false;
         gameObject.SetActive(false);
     }

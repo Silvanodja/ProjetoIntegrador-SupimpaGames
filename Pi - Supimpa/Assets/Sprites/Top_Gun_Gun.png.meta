@@ -1,0 +1,1002 @@
+fileFormatVersion: 2
+guid: b0edd61423931874ba25371a7d3c9bcd
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Top_Gun_Gun_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 264
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1e7b3ae63c3bf42b2dca79bf039ed4
+      internalID: 695041821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 264
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dd5738b23575344187f15fac771b0a7
+      internalID: -933980647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 264
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d49311e69daa4b4994a0202cc3249ec
+      internalID: -670470702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_3
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 264
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbb59401c9f2224ba6013edc14247e7
+      internalID: -1342587747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_4
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 264
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21f9e0d393aad5f45b6f106f53763a0f
+      internalID: -1979771473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_5
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 264
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d16ebba009a3ab488deb333e57c8f02
+      internalID: -601699930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_6
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 264
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eef1ecf057827704cb121e234f4be1b4
+      internalID: -336032885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_7
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 264
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b5eb016dbfa144438164d04b5d490e5
+      internalID: -1801039742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 200
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dbb75a543f2bf6428b06c99653fc328
+      internalID: 1834774545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_9
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 200
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a294593547b02a749ab54a1923d5fdfa
+      internalID: -1899487943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_10
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 200
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e542dfdaf5a0bc45866026c9edbce0d
+      internalID: -1578502841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_11
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 200
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21545df7d34357d43a128a8e50e3aab9
+      internalID: 1238049837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_12
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 200
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe29260f26ac0504fb68ba9e2a2b3d5d
+      internalID: -1708209944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_13
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 200
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d963f6b27ffd2f4ea4abdcf1bfd1f71
+      internalID: 155512656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_14
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 200
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed47dbb0dd22194a93d9fd732f6a14b
+      internalID: -244504581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_15
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 200
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de550e9a67b80f4c96543244e715785
+      internalID: 595580601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_16
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 136
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd1000c304ca3374ea5a85a5932d7bee
+      internalID: 2048511891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_17
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 136
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403250acc3c7afd4b889a8366482ce8d
+      internalID: -474409663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_18
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 136
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae955d40bb4c3142bec096dd577466a
+      internalID: 561722405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_19
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 136
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19bc85d138e94cc4cb206b3d10acab53
+      internalID: -973335757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_20
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 136
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825863bfbc796d742996fa81764897d5
+      internalID: 1907395222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_21
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 136
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a85fcbd3be71b46a3d2819357e24bd
+      internalID: -1879251601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_22
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 136
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b37fdebaf9fe13c4fbd0fb9e3c05f95b
+      internalID: -301579760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_23
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 136
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f6fc08510ff8347beec988cec61919
+      internalID: 1845056135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_24
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 73
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5743472be6dae5143bc43ff23bd3dcc3
+      internalID: 502058387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_25
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 73
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3318e2daf7cfdb24da9babf8e52311c6
+      internalID: 1802324351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_26
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 73
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 330f3c0684e73bb4b8306ee12e33aa4d
+      internalID: -849762790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_27
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 73
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22eeb3cdaa3e6ca4b9e4502017fa0b79
+      internalID: -262777794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_28
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 73
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef104de25b4cc5f468442e78fba49d6e
+      internalID: 85764930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_29
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 73
+        width: 38
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cae44a7d935007459952d9283a3455a
+      internalID: -1039817278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_30
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 73
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1fb9b5242f6ac241a5b0d82c2c48ccd
+      internalID: 827580121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_31
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 73
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa27c19ae5491f428455674b198bbf2
+      internalID: 639637274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_32
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 621f37f53e9c5cc45bdc7765f968769e
+      internalID: -312575373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_33
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7752387fc3fcad74699d0d37a7b33e57
+      internalID: 846334787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_34
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e9d3fe482f666449f39e0ea8c683f1
+      internalID: -1707984525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_35
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b4c5a42ed7b8f94a9d367420029f361
+      internalID: -343134491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_36
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23b70524440afc449abf27640b7cb94a
+      internalID: 540909155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_37
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9709c687d66e942bd6ae7484d04967
+      internalID: 1559580066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_38
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72907b3e82f0b3a49a0b437429ce8353
+      internalID: 1795203092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Top_Gun_Gun_39
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 22
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 229d9bbfe0bdc7340986c93c9cad8e7e
+      internalID: -502372627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Top_Gun_Gun_22: -301579760
+      Top_Gun_Gun_27: -262777794
+      Top_Gun_Gun_24: 502058387
+      Top_Gun_Gun_30: 827580121
+      Top_Gun_Gun_35: -343134491
+      Top_Gun_Gun_13: 155512656
+      Top_Gun_Gun_36: 540909155
+      Top_Gun_Gun_16: 2048511891
+      Top_Gun_Gun_17: -474409663
+      Top_Gun_Gun_1: -933980647
+      Top_Gun_Gun_23: 1845056135
+      Top_Gun_Gun_3: -1342587747
+      Top_Gun_Gun_31: 639637274
+      Top_Gun_Gun_29: -1039817278
+      Top_Gun_Gun_18: 561722405
+      Top_Gun_Gun_20: 1907395222
+      Top_Gun_Gun_5: -601699930
+      Top_Gun_Gun_0: 695041821
+      Top_Gun_Gun_10: -1578502841
+      Top_Gun_Gun_28: 85764930
+      Top_Gun_Gun_37: 1559580066
+      Top_Gun_Gun_7: -1801039742
+      Top_Gun_Gun_2: -670470702
+      Top_Gun_Gun_4: -1979771473
+      Top_Gun_Gun_11: 1238049837
+      Top_Gun_Gun_33: 846334787
+      Top_Gun_Gun_32: -312575373
+      Top_Gun_Gun_39: -502372627
+      Top_Gun_Gun_14: -244504581
+      Top_Gun_Gun_25: 1802324351
+      Top_Gun_Gun_8: 1834774545
+      Top_Gun_Gun_26: -849762790
+      Top_Gun_Gun_38: 1795203092
+      Top_Gun_Gun_19: -973335757
+      Top_Gun_Gun_34: -1707984525
+      Top_Gun_Gun_21: -1879251601
+      Top_Gun_Gun_12: -1708209944
+      Top_Gun_Gun_6: -336032885
+      Top_Gun_Gun_9: -1899487943
+      Top_Gun_Gun_15: 595580601
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

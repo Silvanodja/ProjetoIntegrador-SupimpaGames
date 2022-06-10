@@ -7,6 +7,8 @@ public class ExitGame : MonoBehaviour
 {
     public void EndMiniGame(GameObject minigame)
     {
+        FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
+        FindObjectOfType<AudioManager>().Play("MainTheme");
         minigame.gameObject.SetActive(false);
     }
 }
