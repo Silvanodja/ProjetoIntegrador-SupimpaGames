@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Aula_Photon/Scenes/Connection.unity
-    guid: 2df4d53fd0659b8438273db711bc0e99
-  - enabled: 1
-    path: Assets/Aula_Photon/Scenes/Lobby.unity
-    guid: fd3993cc006caec4aaa1534288cb4f51
+    path: Assets/Scenes/Connection_Lobby/Lobby.unity
+    guid: 50815aae9ab1a744088b22477c27ebdd
   - enabled: 1
     path: Assets/Scenes/GabrielTeste.unity
     guid: 9be71254ad0ab0a4c93727098f80ea1f

@@ -9,6 +9,10 @@ TagManager:
   - Location
   - Canvas
   - SkillChek
+  - Alien
+  - Player is Death
+  - Walking Area
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -24,7 +28,7 @@ TagManager:
   - Player
   - Parede
   - Arredores
-  - 
+  - Alien
   - 
   - 
   - 

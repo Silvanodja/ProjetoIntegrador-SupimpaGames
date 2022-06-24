@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Restarter : MonoBehaviour
 {
-    public GameObject nave, IinteriorDaNave, spawnAsteroids, vida, municao, player, arredores;
+    public GameObject nave, IinteriorDaNave, spawnAsteroids, vida, municao, player;
     public bool ativado = false;
     int oldMask;
     private void Start()

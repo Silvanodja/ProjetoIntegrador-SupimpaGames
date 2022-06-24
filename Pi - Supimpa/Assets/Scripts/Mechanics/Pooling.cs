@@ -6,6 +6,7 @@ public class Pooling : MonoBehaviour
 {
     public GameObject objectsToInstantiate;
     public int beginsInstantiated;
+    public GameObject pasta;
 
     public List<GameObject> listOfObjects;
 
@@ -19,6 +20,7 @@ public class Pooling : MonoBehaviour
         {
             listOfObjects.Add(Instantiate(objectsToInstantiate));
             listOfObjects[i].SetActive(false);
+            listOfObjects[i].transform.SetParent(pasta.transform);
         }
     }
     

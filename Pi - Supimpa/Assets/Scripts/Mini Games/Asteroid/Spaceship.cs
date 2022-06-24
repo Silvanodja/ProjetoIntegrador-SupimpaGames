@@ -41,7 +41,7 @@ public class Spaceship : MonoBehaviour
             damage.health = damage.health - 1;
         }
     }
-
+    
     private void OnEnable()
     {
         Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);

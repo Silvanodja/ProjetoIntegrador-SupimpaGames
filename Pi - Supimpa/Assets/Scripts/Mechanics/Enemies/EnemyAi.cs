@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Photon.Pun;
 public class EnemyAi : MonoBehaviour
 {
-    Transform target;
-
     public float speed = 200f;
     public float nextWaipointDistance = 3;
 
@@ -13,41 +12,53 @@ public class EnemyAi : MonoBehaviour
 
     Path path;
     int currentWaypoint = 0;
-    bool reachedEndOfPath = false;
 
     Seeker seeker;
     Rigidbody2D rb;
 
-    public Animator anim;
+    Animator anim;
+
+    GameObject[] players;
+    int nearTransform;
+
+    Transform myTransform;
+
+    [SerializeField] private bool isWalking;
+
+    [SerializeField] private float walkTime;
+    float walkCkounter;
+
+    [SerializeField] private float waitTime;
+    float waitCounter;
+
+    int walkDirecition;
 
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-       // anim = GameObject.Find("Enemy/Circle").GetComponent<Animator>();
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        anim = GetComponent<Animator>();
+        myTransform = GetComponent<Transform>();
+
+        waitCounter = waitTime;
+        walkCkounter = walkTime;
+        ChoseDirection();
     }
 
-    private void UpdatePath()
+    Transform ClosestPlayer()
     {
-        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Player"))
+        nearTransform = 0;
+        for (int i = 0; i < players.Length; i++)
         {
-            target = item.transform;
-            float distanceFromPlayer = Vector2.Distance(target.position, transform.position);
-            if (distanceFromPlayer < lineOfSite)
+            if (Vector3.Distance(players[i].transform.position, transform.position) < Vector3.Distance(players[nearTransform].transform.position, transform.position))
             {
-                if (seeker.IsDone())
-                {
-                    seeker.StartPath(rb.position, target.position, OnPathComplete);
-                }
-                anim.SetBool("Walking", true);
-            }
-            else
-            {
-                anim.SetBool("Walking", false);
+                nearTransform = i;
             }
         }
+
+        return players[nearTransform].transform;
     }
+
 
     private void OnDrawGizmosSelected()
     {
@@ -64,43 +75,100 @@ public class EnemyAi : MonoBehaviour
         }
     }
 
+    void ChoseDirection()
+    {
+        walkDirecition = Random.Range(0, 4);
+        isWalking = true;
+        walkCkounter = walkTime;
+    }
+
     void FixedUpdate()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        float distanceFromPlayer = Vector2.Distance(ClosestPlayer().position, transform.position);
+        if (distanceFromPlayer < lineOfSite)
+        {
+            if (seeker.IsDone())
+            {
+                seeker.StartPath(transform.position, ClosestPlayer().position, OnPathComplete);
+                if (ClosestPlayer().position.x > transform.position.x)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+                anim.SetBool("Walking", true);
+            }
+
+        }
+        else
+        {
+            if (isWalking)
+            {
+                anim.SetBool("Walking", true);
+                walkCkounter -= Time.deltaTime;
+
+                switch (walkDirecition)
+                {
+                    case 0:
+                        rb.velocity = new Vector2(0, speed);
+                        transform.localScale = new Vector3(1, 1, 1);
+                        break;
+                    case 1:
+                        rb.velocity = new Vector2(speed, 0);
+                        transform.localScale = new Vector3(-1, 1, 1);
+                        break;
+                    case 2:
+                        rb.velocity = new Vector2(0, -speed);
+                        transform.localScale = new Vector3(1, 1, 1);
+                        break;
+                    case 3:
+                        rb.velocity = new Vector2(-speed, 0);
+                        transform.localScale = new Vector3(1, 1, 1);
+                        break;
+                }
+
+                if (walkCkounter < 0)
+                {
+                    isWalking = false;
+                    waitCounter = waitTime;
+                }
+            }
+            else
+            {
+                anim.SetBool("Walking", false);
+                waitCounter -= Time.deltaTime;
+
+                rb.velocity = Vector2.zero;
+
+                if (waitCounter < 0)
+                {
+                    ChoseDirection();
+                }
+            }
+        }
+
         if (path == null)
         {
             return;
         }
         if (currentWaypoint >= path.vectorPath.Count)
         {
-            reachedEndOfPath = true;
             return;
         }
-        else
-        {
-            reachedEndOfPath = false;
-        }
 
-        Vector2 direcition = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direcition * speed * Time.deltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, ClosestPlayer().position, speed * Time.deltaTime);
 
-        rb.AddForce(force);
-
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
 
         if (distance < nextWaipointDistance)
         {
             currentWaypoint++;
         }
 
-        
 
-        if (direcition.x > 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        if (direcition.x < 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
     }
 }
