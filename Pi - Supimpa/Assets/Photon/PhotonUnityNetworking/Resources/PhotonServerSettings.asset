@@ -48,6 +48,13 @@ MonoBehaviour:
   - TakeDamageRPC
   - EnemyForgetPlayer
   - ChangeDifficulty
+  - Shoot
+  - Start
+  - Die
+  - Desactive
+  - TakeDamage
+  - ShootDirection
+  - Desactivate
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

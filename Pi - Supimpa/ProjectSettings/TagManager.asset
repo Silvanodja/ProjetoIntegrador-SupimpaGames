@@ -13,6 +13,7 @@ TagManager:
   - Player is Death
   - Walking Area
   - Wall
+  - Shoot
   layers:
   - Default
   - TransparentFX

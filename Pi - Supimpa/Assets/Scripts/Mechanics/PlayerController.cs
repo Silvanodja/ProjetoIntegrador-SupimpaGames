@@ -7,12 +7,12 @@ using Photon.Pun;
 public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
 {
     public float speed = 10;
-    public Transform shotPosition;
+    public Transform shootPosition;
+    int shootPositionValue = 0;
     Rigidbody2D physics;
     Animator anim;
     InteractionSystem interaction;
     GameObject shot;
-
     private PhotonView view;
 
     float horizontal;
@@ -28,6 +28,16 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
     [SerializeField] private HealthBar health;
 
     bool isDeath = false;
+
+    void Start()
+    {
+        view = GetComponent<PhotonView>();
+        physics = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        interaction = GetComponent<InteractionSystem>();
+        shotPooling = FindObjectOfType<Pooling>();
+    }
+
     public void StartCooldown()
     {
         cooldown = true;
@@ -51,16 +61,6 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
             physics.isKinematic = true;
         }
     }
-
-    void Start()
-    {
-        view = GetComponent<PhotonView>();
-        physics = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        interaction = GetComponent<InteractionSystem>();
-        shotPooling = FindObjectOfType<Pooling>();
-    }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -90,6 +90,10 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
     [PunRPC]
     private void EnemyForgetPlayer()
     {
+        if (view.IsMine)
+        {
+            interaction.hasWeapon = false;
+        }
         gameObject.tag = "Player is Death";
     }
 
@@ -122,11 +126,6 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
             anim.SetBool("Gun", false);
         }
 
-        if (Input.GetMouseButtonDown(0) && interaction.hasWeapon)
-        {
-            Invoke(nameof(Shoot), 0);
-        }
-
         if (horizontal != 0 || vertical != 0)
         {
             anim.SetBool("Walking", true);
@@ -139,6 +138,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         if (horizontal != 0)
         {
             anim.SetBool("Side", true);
+            shootPositionValue = 0;
         }
         else if (horizontal == 0)
         {
@@ -148,6 +148,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         if (vertical > 0 && horizontal == 0)
         {
             anim.SetBool("Back", true);
+            shootPositionValue = 1;
         }
         else if (vertical == 0 || horizontal != 0)
         {
@@ -157,10 +158,16 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         if (vertical < 0 && horizontal == 0)
         {
             anim.SetBool("Front", true);
+            shootPositionValue = 2;
         }
         else if (vertical == 0 || horizontal != 0)
         {
             anim.SetBool("Front", false);
+        }
+        
+        if (Input.GetMouseButtonDown(0) && interaction.hasWeapon)
+        {
+            photonView.RPC("Shoot", RpcTarget.All, shootPositionValue);
         }
 
         if (horizontal < 0)
@@ -174,22 +181,54 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
 
     }
 
-    void Shoot()
+    [PunRPC]
+    void Shoot(int shootPositionValue)
     {
+        if (horizontal != 0)
+        {
+            shootPositionValue = 0;
+        }
+
+        if (vertical > 0 && horizontal == 0)
+        {
+            shootPositionValue = 1;
+        }
+
+        if (vertical < 0 && horizontal == 0)
+        {
+            shootPositionValue = 2;
+        }
         GameObject newShot = shotPooling.GetObject();
 
         if (newShot != null)
         {
-            newShot.transform.position = shotPosition.transform.position;
-            newShot.GetComponent<GunShot>().speed = newShot.GetComponent<GunShot>().originalSpeed;
-            if (transform.localScale.x == 1)
+            switch (shootPositionValue)
             {
-                newShot.GetComponent<GunShot>().speed *= 1;
+                case 0:
+                    shootPosition.localPosition = new Vector2(0.7f, -0.12f);
+                    newShot.transform.position = shootPosition.transform.position;
+                    newShot.GetComponent<GunShot>().speedHorizontal = newShot.GetComponent<GunShot>().originalSpeed;
+                    if (transform.localScale.x == -1)
+                    {
+                        newShot.GetComponent<GunShot>().speedHorizontal *= -1;
+                    }
+                    newShot.GetComponent<GunShot>().speedVertical *= 0;
+                    break;
+                case 1:
+                    shootPosition.localPosition = new Vector2(0, 0.7f);
+                    newShot.transform.position = shootPosition.transform.position;
+                    newShot.GetComponent<GunShot>().speedVertical = newShot.GetComponent<GunShot>().originalSpeed;
+                    newShot.GetComponent<GunShot>().speedHorizontal *= 0;
+                    break;
+                case 2:
+                    shootPosition.localPosition = new Vector2(0, -0.5f);
+                    newShot.transform.position = shootPosition.transform.position;
+                    newShot.GetComponent<GunShot>().speedVertical = newShot.GetComponent<GunShot>().originalSpeed * -1;
+                    newShot.GetComponent<GunShot>().speedHorizontal *= 0;
+                    break;
+
             }
-            else
-            {
-                newShot.GetComponent<GunShot>().speed *= -1;
-            }
+
             newShot.SetActive(true);
             FindObjectOfType<AudioManager>().Play("WeaponShot");
         }

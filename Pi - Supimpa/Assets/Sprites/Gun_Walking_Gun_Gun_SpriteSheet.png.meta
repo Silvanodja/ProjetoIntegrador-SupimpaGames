@@ -1,0 +1,568 @@
+fileFormatVersion: 2
+guid: 50b45db2fcc886344bb9d4980cdcb25a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 199
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac1565d9a8981c9478722a7e3e6cfd04
+      internalID: 472785792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 199
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3bac6d6b0786f4a970b417056b8302
+      internalID: -1032559729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 199
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cff86ae646d8da54bb30b3107ffa31a1
+      internalID: 346497504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 199
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c575c357dc9888d4d821c605b67e95c3
+      internalID: 1084553227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 198
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8248634895e4be64fadb21f47db9e850
+      internalID: -1548686755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 198
+        width: 27
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3ec4e8c0d834144f80944c90c2abc07
+      internalID: -1768627705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 135
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ba44769852922479797d6b227f8eca
+      internalID: -1870857955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 135
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17b91a20da458d429137a8b16a73008
+      internalID: -356967812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 135
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a0302a0e8777446b13935e3c4dcb17
+      internalID: 1268595063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 135
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a5748341a5e284f9c481218eb9279e
+      internalID: 1082889403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 135
+        width: 28
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff242b56ae3036499b3b543d281fe07
+      internalID: 117078558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 135
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3fb6e3556181f949bf4ab8954b16776
+      internalID: 732204542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 71
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f4bb1082b480a429fac969b0c6f254
+      internalID: -806982646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 71
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1342a4dd85a101a40aa838fe12f64081
+      internalID: 1665944044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 71
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8046e88e962d8d244b4a87325a536939
+      internalID: -1243558208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 71
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b78a54b32d8c0742a83209638df6979
+      internalID: -1334924678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_22
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 7
+        width: 27
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10a6392fff7a48a40b44735503ce8669
+      internalID: 321450242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_23
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 7
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817c9c7d7a3c6cf40ae90c3dc440c931
+      internalID: 2056319579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_24
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 7
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e571a8ea983903a499a5e5483d9a274b
+      internalID: 811215489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Gun_Walking_Gun_Gun_SpriteSheet_25
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 7
+        width: 27
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d65f0a2fb654164580a82f7f07d4a2b
+      internalID: -87611710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 052f921ad7a7e07439989f7bcdbeb5d0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Gun_Walking_Gun_Gun_SpriteSheet_5: -1768627705
+      Gun_Walking_Gun_Gun_SpriteSheet_4: -1548686755
+      Gun_Walking_Gun_Gun_SpriteSheet_13: 1665944044
+      Gun_Walking_Gun_Gun_SpriteSheet_16: 2039746347
+      Gun_Walking_Gun_Gun_SpriteSheet_22: 321450242
+      Gun_Walking_Gun_Gun_SpriteSheet_19: 1801955210
+      Gun_Walking_Gun_Gun_SpriteSheet_14: -1243558208
+      Gun_Walking_Gun_Gun_SpriteSheet_2: 346497504
+      Gun_Walking_Gun_Gun_SpriteSheet_11: 732204542
+      Gun_Walking_Gun_Gun_SpriteSheet_15: -1334924678
+      Gun_Walking_Gun_Gun_SpriteSheet_23: 2056319579
+      Gun_Walking_Gun_Gun_SpriteSheet_0: 472785792
+      Gun_Walking_Gun_Gun_SpriteSheet_3: 1084553227
+      Gun_Walking_Gun_Gun_SpriteSheet_18: 1548915177
+      Gun_Walking_Gun_Gun_SpriteSheet_9: 1082889403
+      Gun_Walking_Gun_Gun_SpriteSheet_12: -806982646
+      Gun_Walking_Gun_Gun_SpriteSheet_17: -1237612457
+      Gun_Walking_Gun_Gun_SpriteSheet_24: 811215489
+      Gun_Walking_Gun_Gun_SpriteSheet_1: -1032559729
+      Gun_Walking_Gun_Gun_SpriteSheet_6: -1870857955
+      Gun_Walking_Gun_Gun_SpriteSheet_25: -87611710
+      Gun_Walking_Gun_Gun_SpriteSheet_7: -356967812
+      Gun_Walking_Gun_Gun_SpriteSheet_21: 1253532418
+      Gun_Walking_Gun_Gun_SpriteSheet_20: 753423883
+      Gun_Walking_Gun_Gun_SpriteSheet_8: 1268595063
+      Gun_Walking_Gun_Gun_SpriteSheet_10: 117078558
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

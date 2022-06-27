@@ -1,8 +1,9 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pooling : MonoBehaviour
+public class Pooling : MonoBehaviourPunCallbacks
 {
     public GameObject objectsToInstantiate;
     public int beginsInstantiated;
@@ -12,18 +13,25 @@ public class Pooling : MonoBehaviour
 
     public bool canIncrease = true;
 
+    [SerializeField] private string prefabLocation;
+
+    [PunRPC]
     void Start()
     {
         listOfObjects = new List<GameObject>();
+        CreateAmmunition();
+    }
 
+    private void CreateAmmunition()
+    {
         for (int i = 0; i < beginsInstantiated; i++)
         {
-            listOfObjects.Add(Instantiate(objectsToInstantiate));
+            listOfObjects.Add(PhotonNetwork.Instantiate(prefabLocation, Vector3.zero, Quaternion.identity));
             listOfObjects[i].SetActive(false);
             listOfObjects[i].transform.SetParent(pasta.transform);
         }
     }
-    
+
     public GameObject GetObject()
     {
         for (int i = 0; i < listOfObjects.Count; i++)
@@ -39,7 +47,7 @@ public class Pooling : MonoBehaviour
             return null;
         }
 
-        listOfObjects.Add(Instantiate(objectsToInstantiate));
+        listOfObjects.Add(PhotonNetwork.Instantiate(prefabLocation, Vector3.zero, Quaternion.identity));
         return listOfObjects[listOfObjects.Count - 1];
     }
 }

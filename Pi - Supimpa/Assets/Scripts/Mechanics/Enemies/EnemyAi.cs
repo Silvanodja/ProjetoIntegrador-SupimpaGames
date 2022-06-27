@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using Photon.Pun;
-public class EnemyAi : MonoBehaviour
+public class EnemyAi : MonoBehaviourPunCallbacks
 {
     public float speed = 200f;
     public float nextWaipointDistance = 3;
@@ -33,13 +33,19 @@ public class EnemyAi : MonoBehaviour
 
     int walkDirecition;
 
+    public int maxHealth = 100;
+    int currentHealth;
+
+    private PhotonView view;
+    [SerializeField] private EnemyHealthBar  health;
     void Start()
     {
+        view = GetComponent<PhotonView>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         myTransform = GetComponent<Transform>();
-
+        currentHealth = maxHealth;
         waitCounter = waitTime;
         walkCkounter = walkTime;
         ChoseDirection();
@@ -168,7 +174,26 @@ public class EnemyAi : MonoBehaviour
         {
             currentWaypoint++;
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+            if (collision.tag == "Shoot")
+            {
+                print("Acertou");
+                collision.GetComponent<GunShot>().photonView.RPC("Desactivate", RpcTarget.All);
+                health.photonView.RPC("TakeDamage", RpcTarget.All, 5);
+            }        
+    }
 
+    public void Die()
+    {
+        photonView.RPC("Desactive", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void Desactive()
+    {
+        gameObject.SetActive(false);
     }
 }

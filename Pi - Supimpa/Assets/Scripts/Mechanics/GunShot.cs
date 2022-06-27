@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class GunShot : MonoBehaviour
+public class GunShot : MonoBehaviourPunCallbacks
 {
     Rigidbody2D shot;
-    public float speed;
+    public float speedHorizontal;
+    public float speedVertical;
     public float originalSpeed;
 
     void OnEnable()
     {
         shot = GetComponent<Rigidbody2D>();
-        Invoke(nameof(Deactivate), 2);
+        Invoke(nameof(Desactivate), 2);
     }
 
     private void OnDisable()
@@ -22,10 +23,13 @@ public class GunShot : MonoBehaviour
 
     void Update()
     {
-        shot.velocity = new Vector2(speed, 0);
+        shot.velocity = new Vector2(speedHorizontal, speedVertical);
     }
 
-    void Deactivate()
+    
+
+    [PunRPC]
+    void Desactivate()
     {
         gameObject.SetActive(false);
     }

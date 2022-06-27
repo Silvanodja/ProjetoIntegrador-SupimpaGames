@@ -11,7 +11,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     [SerializeField] private Transform[] spawns;
     public GameObject pool;
     private int playerInGame = 0;
-    private List<PlayerController> players;
+    private List<PlayerController> players = new List<PlayerController>();
     public List<PlayerController> Players { get => players; private set => players = value; }
 
     private void Awake()
