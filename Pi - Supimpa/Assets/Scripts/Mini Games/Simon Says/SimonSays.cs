@@ -8,6 +8,7 @@ public class SimonSays : MonoBehaviour
     [SerializeField] GameObject[] buttons;
     [SerializeField] GameObject[] lightArray;
     [SerializeField] int[] lightOrder;
+    [SerializeField] CycleManager difficulty;
     //[SerializeField] GameObject simonSaysGamePanel;
 
     int level = 0;
@@ -63,14 +64,14 @@ public class SimonSays : MonoBehaviour
             StartCoroutine(ColorBlink(red));
         }
 
-        if (buttonsclicked == level && passed && buttonsclicked != 5)
+        if (buttonsclicked == level && passed && buttonsclicked != difficulty.simonSaysLenght)
         {
             level++;
             passed = false;
             StartCoroutine(ColorOrder());
         }
 
-        if (buttonsclicked == level && passed && buttonsclicked == 5)
+        if (buttonsclicked == level && passed && buttonsclicked == difficulty.simonSaysLenght)
         {
             won = true;
             StartCoroutine(ColorBlink(blue));

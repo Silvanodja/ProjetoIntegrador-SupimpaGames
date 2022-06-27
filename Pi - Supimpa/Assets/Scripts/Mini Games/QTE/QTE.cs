@@ -6,6 +6,7 @@ using TMPro;
 
 public class QTE : MonoBehaviour
 {
+    [SerializeField] CycleManager difficulty;
     public CameraController gameCamera;
     public Slider slider;
     public TMP_Text pressText;
@@ -25,8 +26,8 @@ public class QTE : MonoBehaviour
     public float textIntervalTwo;
     [Space(10)]
 
-    [Range(1f, 20f)]
-    public float timeLimit;
+    //[Range(1f, 20f)]
+    //public float timeLimit;
 
     [Range(0.1f, 1f)]
     public float playerTimeGain;
@@ -37,7 +38,7 @@ public class QTE : MonoBehaviour
     private void OnEnable()
     {
         slider.value = 0f;
-        slider.maxValue = timeLimit;
+        slider.maxValue = difficulty.qTEBarTime;
         timer = 0f;
         buttonEnabled = false;
         buttonPressed = false;
@@ -51,7 +52,7 @@ public class QTE : MonoBehaviour
 
     void Update()
     {
-        if (timer <= timeLimit)
+        if (timer <= difficulty.qTEBarTime)
         {
             timer += Time.deltaTime;
             slider.value = timer;

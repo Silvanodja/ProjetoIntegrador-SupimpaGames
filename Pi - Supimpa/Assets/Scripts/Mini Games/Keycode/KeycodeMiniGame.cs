@@ -7,14 +7,16 @@ public class KeycodeMiniGame : MonoBehaviour
 {
     public TMP_Text hiddenCode;
     public TMP_Text inputCode;
-    public int codeLenght = 5;
+    public int codeLenght;
     public float codeResetTimeInSeconds = 0.5f;
     private bool isReseting = false;
     public CameraController gameCamera;
+    [SerializeField] CycleManager difficulty;
 
     private void OnEnable()
     {
         string code = string.Empty;
+        codeLenght = difficulty.keyCodeLenght;
         for (int i = 0; i < codeLenght; i++)
         {
             code += Random.Range(1, 10);
