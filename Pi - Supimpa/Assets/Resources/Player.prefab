@@ -232,7 +232,7 @@ MonoBehaviour:
   detectionLayer:
     serializedVersion: 2
     m_Bits: 64
-  gameCamera: {fileID: 8065330805250284033}
+  gameCamera: {fileID: 0}
   hasWeapon: 0
 --- !u!50 &7256738868849243899
 Rigidbody2D:
@@ -523,7 +523,6 @@ GameObject:
   - component: {fileID: 9086807939299091417}
   - component: {fileID: 8442427852292198462}
   - component: {fileID: 8147776020925006607}
-  - component: {fileID: 8065330805250284033}
   - component: {fileID: 6581991559421346322}
   m_Layer: 0
   m_Name: Camera
@@ -598,20 +597,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7609697535073370588}
   m_Enabled: 1
---- !u!114 &8065330805250284033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7609697535073370588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c4c92fe8e729af49b5bd348bf27ca1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  miniGameIsPlaying: 0
 --- !u!114 &6581991559421346322
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    private void AddPlayer()
+    public void AddPlayer()
     {
         playerInGame++;
         if(playerInGame == PhotonNetwork.PlayerList.Length)

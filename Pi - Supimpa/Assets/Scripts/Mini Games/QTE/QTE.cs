@@ -8,6 +8,7 @@ public class QTE : MonoBehaviour
 {
     [SerializeField] CycleManager difficulty;
     public CameraController gameCamera;
+    public MiniGameManager miniManager;
     public Slider slider;
     public TMP_Text pressText;
     public TMP_Text correctText;
@@ -48,6 +49,7 @@ public class QTE : MonoBehaviour
 
         pressTime = RandomizeIntervals(pressTimeMinimum, pressTimeMaximum);
         textInterval = RandomizeIntervals(textIntervalOne, textIntervalTwo);
+        miniManager.miniGameName = "qte";
     }
 
     void Update()

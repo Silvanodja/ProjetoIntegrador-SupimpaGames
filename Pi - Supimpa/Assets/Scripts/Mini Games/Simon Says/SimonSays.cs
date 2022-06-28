@@ -22,6 +22,7 @@ public class SimonSays : MonoBehaviour
     Color32 white = new Color32(255, 255, 255, 255);
     public float lightSpeed;
     public CameraController gameCamera;
+    public MiniGameManager miniManager;
 
     private void OnEnable()
     {
@@ -37,6 +38,7 @@ public class SimonSays : MonoBehaviour
 
         level = 1;
         StartCoroutine(ColorOrder());
+        miniManager.miniGameName = "simon";
     }
 
     private void Update()

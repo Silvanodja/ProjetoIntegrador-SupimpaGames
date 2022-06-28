@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
     InteractionSystem interaction;
     GameObject shot;
     private PhotonView view;
+    CameraController miniGame;
 
     float horizontal;
     float vertical;
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         anim = GetComponent<Animator>();
         interaction = GetComponent<InteractionSystem>();
         shotPooling = FindObjectOfType<Pooling>();
+        miniGame = FindObjectOfType<CameraController>();
     }
 
     public void StartCooldown()
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
 
         if (!photonView.IsMine)
         {
-            physics.isKinematic = true;
+            //physics.isKinematic = true;
         }
     }
 
@@ -88,7 +90,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
     }
 
     [PunRPC]
-    private void EnemyForgetPlayer()
+    void EnemyForgetPlayer()
     {
         if (view.IsMine)
         {
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         if (view.IsMine)
         {
             life.SetActive(true);
-            if (!isDeath)
+            if (!isDeath && !miniGame.miniGameIsPlaying)
             {
                 horizontal = Input.GetAxisRaw("Horizontal");
                 vertical = Input.GetAxisRaw("Vertical");
@@ -233,21 +235,4 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
             FindObjectOfType<AudioManager>().Play("WeaponShot");
         }
     }
-    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    //{
-    //    if (stream.IsWriting)
-    //    {
-    //        stream.SendNext(anim.GetBool("Front"));
-    //        stream.SendNext(anim.GetBool("Back"));
-    //        stream.SendNext(anim.GetBool("Side"));
-    //        stream.SendNext(anim.GetBool("Walking"));
-    //    }
-    //    else
-    //    {
-    //        anim.SetBool("Front", (bool)stream.ReceiveNext());
-    //        anim.SetBool("Back", (bool)stream.ReceiveNext());
-    //        anim.SetBool("Side", (bool)stream.ReceiveNext());
-    //        anim.SetBool("Walking", (bool)stream.ReceiveNext());
-    //    }
-    //}
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class KeycodeMiniGame : MonoBehaviour
@@ -11,6 +12,7 @@ public class KeycodeMiniGame : MonoBehaviour
     public float codeResetTimeInSeconds = 0.5f;
     private bool isReseting = false;
     public CameraController gameCamera;
+    public MiniGameManager miniManager;
     [SerializeField] CycleManager difficulty;
 
     private void OnEnable()
@@ -24,6 +26,7 @@ public class KeycodeMiniGame : MonoBehaviour
 
         hiddenCode.text = code;
         inputCode.text = string.Empty;
+        miniManager.miniGameName = "keycode";
     }
 
     private void Update()

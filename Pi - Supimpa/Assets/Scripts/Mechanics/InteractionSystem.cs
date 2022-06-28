@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class InteractionSystem : MonoBehaviour
+public class InteractionSystem : MonoBehaviourPunCallbacks
 {
     public Transform detectionPoint;
     public float detectionRadius = 1f;
     public LayerMask detectionLayer;
     //public GameObject miniGameAsteroids;
     public CameraController gameCamera;
+    //public MiniGameManager miniGameManager;
     public bool hasWeapon;
 
     Weapon gun;
@@ -17,6 +19,7 @@ public class InteractionSystem : MonoBehaviour
     private void Start()
     {
         gun = FindObjectOfType<Weapon>();
+        gameCamera = FindObjectOfType<CameraController>();
     }
 
     void Update()
@@ -25,10 +28,8 @@ public class InteractionSystem : MonoBehaviour
         {
             if (InteractInput())
             {
-                //Debug.Log(MiniGame());
                 if (MiniGame())
                 {
-                    //Debug.Log("minigame");
                     gameCamera.miniGameIsPlaying = true;
                     FindObjectOfType<AudioManager>().Play("MiniGameTheme");
                     FindObjectOfType<AudioManager>().Pause("MainTheme");
@@ -39,16 +40,28 @@ public class InteractionSystem : MonoBehaviour
                     if (!hasWeapon && gun.gunCount > 0)
                     {
                         hasWeapon = true;
-                        gun.gunCount--;
+                        photonView.RPC(nameof(TakeGun), RpcTarget.AllBuffered);
                     }
                     else if (hasWeapon)
                     {
                         hasWeapon = false;
-                        gun.gunCount++;
+                        photonView.RPC(nameof(ReturnGun), RpcTarget.AllBuffered);
                     }
                 }
             }
         }
+    }
+
+    [PunRPC]
+    public void TakeGun()
+    {
+        gun.gunCount--;
+    }
+
+    [PunRPC]
+    public void ReturnGun()
+    {
+        gun.gunCount++;
     }
 
     bool MiniGame()

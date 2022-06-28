@@ -12,7 +12,6 @@ public class HealthBar : MonoBehaviour
     public int currentHealth;
     [SerializeField] PlayerController player;
 
-
     PhotonView view;
 
     private void Start()

@@ -10,6 +10,7 @@ public class RobotGameController : MonoBehaviour
     bool itsOver;
 
     public CameraController gameCamera;
+    public MiniGameManager miniManager;
 
     private void OnEnable()
     {
@@ -20,6 +21,7 @@ public class RobotGameController : MonoBehaviour
         {
             flags[j] = false;
         }
+        miniManager.miniGameName = "robot";
     }
 
     void Update()

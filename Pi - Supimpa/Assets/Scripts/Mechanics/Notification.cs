@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Photon.Pun;
 
-public class Notification : MonoBehaviour
+public class Notification : MonoBehaviourPunCallbacks
 {
     public class NotificationClass
     {
@@ -28,32 +29,38 @@ public class Notification : MonoBehaviour
 
     void Start()
     {
-        initialPosition = new Vector3(notificationUI.transform.position.x + 155,
-                        notificationUI.transform.position.y - 30,
+        initialPosition = new Vector3(notificationUI.transform.position.x - 80,
+                        notificationUI.transform.position.y - 20,
                         notificationUI.transform.position.z);
         notificationPrefab.transform.localPosition = initialPosition;
     }
 
     void Update()
     {
-        int i = 0;
+        //int i = 0;
         if (NotificationInput())
         {
-            notification = new NotificationClass(notificationPrefab, false);
-            notificationList.Enqueue(notification);
+            photonView.RPC("NotificationMaster", RpcTarget.All, 0);
+        }
+    }
 
-            foreach (NotificationClass item in notificationList)
+    [PunRPC]
+    public void NotificationMaster(int i)
+    {
+        notification = new NotificationClass(notificationPrefab, false);
+        notificationList.Enqueue(notification);
+
+        foreach (NotificationClass item in notificationList)
+        {
+            i++;
+            if (!item.isOnScreen)
             {
-                i++;
-                if (!item.isOnScreen)
-                {
-                    notificationPrompt = Instantiate(notificationPrefab, notificationUI.transform);
-                    notificationPrefab.transform.localPosition = new Vector3(initialPosition.x,
-                        initialPosition.y - (55 * i),
-                        initialPosition.z);
-                    notification.isOnScreen = true;
-                    StartCoroutine(DespawnNotification(notificationPrompt));
-                }
+                notificationPrompt = Instantiate(notificationPrefab, notificationUI.transform);
+                notificationPrefab.transform.localPosition = new Vector3(initialPosition.x,
+                    initialPosition.y - (25 * i),
+                    initialPosition.z);
+                notification.isOnScreen = true;
+                StartCoroutine(DespawnNotification(notificationPrompt));
             }
         }
     }
