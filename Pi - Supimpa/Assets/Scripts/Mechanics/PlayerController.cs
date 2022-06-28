@@ -210,6 +210,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
                     shootPosition.localPosition = new Vector2(0.7f, -0.12f);
                     newShot.transform.position = shootPosition.transform.position;
                     newShot.GetComponent<GunShot>().speedHorizontal = newShot.GetComponent<GunShot>().originalSpeed;
+                    newShot.gameObject.transform.localRotation = Quaternion.AngleAxis(90, Vector3.forward);
                     if (transform.localScale.x == -1)
                     {
                         newShot.GetComponent<GunShot>().speedHorizontal *= -1;
@@ -219,12 +220,14 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
                 case 1:
                     shootPosition.localPosition = new Vector2(0, 0.7f);
                     newShot.transform.position = shootPosition.transform.position;
+                    newShot.gameObject.transform.localRotation = Quaternion.AngleAxis(0, Vector3.forward);
                     newShot.GetComponent<GunShot>().speedVertical = newShot.GetComponent<GunShot>().originalSpeed;
                     newShot.GetComponent<GunShot>().speedHorizontal *= 0;
                     break;
                 case 2:
                     shootPosition.localPosition = new Vector2(0, -0.5f);
                     newShot.transform.position = shootPosition.transform.position;
+                    newShot.gameObject.transform.localRotation = Quaternion.AngleAxis(0, Vector3.forward);
                     newShot.GetComponent<GunShot>().speedVertical = newShot.GetComponent<GunShot>().originalSpeed * -1;
                     newShot.GetComponent<GunShot>().speedHorizontal *= 0;
                     break;
