@@ -29,6 +29,12 @@ public class KeycodeMiniGame : MonoBehaviour
         miniManager.miniGameName = "keycode";
     }
 
+    private void OnDisable()
+    {
+        miniManager.miniGameName = "default";
+        difficulty.ResetTimer("keycode");
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

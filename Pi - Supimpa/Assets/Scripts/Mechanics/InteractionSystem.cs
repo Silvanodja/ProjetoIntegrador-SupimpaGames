@@ -35,6 +35,11 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
                     FindObjectOfType<AudioManager>().Pause("MainTheme");
                 }
 
+                else if (Asteroids())
+                {
+                    gameCamera.miniGameIsPlaying = true;
+                }
+
                 else if (WeaponPickUp())
                 {
                     if (!hasWeapon && gun.gunCount > 0)
@@ -71,6 +76,22 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
         if (hit.gameObject.GetComponent<Interactable>() != null)
         {
             hit.gameObject.GetComponent<Interactable>().miniGame.SetActive(true);
+            return true;
+        }
+        else
+        {
+            //hit.gameObject.SetActive(false);
+            return false;
+        }
+    }
+
+    bool Asteroids()
+    {
+        Collider2D hit = InteractionResult();
+        //Debug.Log(hit.gameObject.GetComponent<Interactable>());
+        if (hit.gameObject.GetComponent<Interact>() != null)
+        {
+            hit.gameObject.GetComponent<Interact>().begin = true;
             return true;
         }
         else

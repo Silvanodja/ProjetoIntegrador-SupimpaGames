@@ -24,6 +24,11 @@ public class RobotGameController : MonoBehaviour
         miniManager.miniGameName = "robot";
     }
 
+    private void OnDisable()
+    {
+        miniManager.miniGameName = "default";
+    }
+
     void Update()
     {
         for (int i = 0; i < bodyParts.Length; i++)

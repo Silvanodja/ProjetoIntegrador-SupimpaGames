@@ -8,6 +8,11 @@ public class Restarter : MonoBehaviour
     public GameObject nave, IinteriorDaNave, spawnAsteroids, vida, municao, player;
     public bool ativado = false;
     int oldMask;
+    public MiniGameManager miniManager;
+    public CycleManager cycleManager;
+    public float timer;
+    public Interact start;
+
     private void Start()
     {
         player = GetComponent<SpawnManager>().gm;
@@ -15,9 +20,11 @@ public class Restarter : MonoBehaviour
     }
     private void Update()
     {
+        timer += Time.deltaTime;
         if (ativado == false)
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            timer = 0;
+            if (start.begin)
             {
                 FindObjectOfType<AudioManager>().Play("MiniGameTheme");
                 FindObjectOfType<AudioManager>().Pause("MainTheme");
@@ -30,6 +37,7 @@ public class Restarter : MonoBehaviour
                 Camera.main.orthographicSize = 170;
                 Camera.main.cullingMask = ~(1 << 13);
                 print(Camera.main.cullingMask);
+                miniManager.miniGameName = "asteroid";
 
                 //player.GetComponent<Player>().enabled = false;
                 ativado = true;
@@ -37,7 +45,7 @@ public class Restarter : MonoBehaviour
         }
         else if (ativado == true)
         {
-            if (Input.GetKeyDown(KeyCode.M))
+            if (timer >= 5)
             {
                 FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
                 FindObjectOfType<AudioManager>().Play("MainTheme");
@@ -51,6 +59,8 @@ public class Restarter : MonoBehaviour
                 Camera.main.cullingMask = oldMask;
                 Camera.main.transform.position = new Vector3(0, 0, -10);
                 //player.GetComponent<Player>().enabled = true;
+                miniManager.miniGameName = "default";
+                cycleManager.ResetTimer("asteroid");
                 ativado = false;
             }
         }

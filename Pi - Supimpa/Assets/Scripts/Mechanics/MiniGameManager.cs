@@ -10,6 +10,8 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     public GameObject simonButton;
     public GameObject keycodeButton;
     public GameObject robotButton;
+    public GameObject asteroidButton;
+    public GameObject alienButton;
     public string miniGameName;
 
     void Start()
@@ -25,7 +27,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
                 if (!gameIsActive) 
                 {
                     gameIsActive = true;
-                    photonView.RPC(nameof(MiniGameIsBeingPlayed), RpcTarget.OthersBuffered, miniGameName);
+                    photonView.RPC(nameof(MiniGameIsBeingPlayed), RpcTarget.AllBuffered, miniGameName);
                 }
                 break;
 
@@ -33,7 +35,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
                 if (!gameIsActive)
                 {
                     gameIsActive = true;
-                    photonView.RPC(nameof(MiniGameIsBeingPlayed), RpcTarget.OthersBuffered, miniGameName);
+                    photonView.RPC(nameof(MiniGameIsBeingPlayed), RpcTarget.AllBuffered, miniGameName);
                 }
                 break;
 
@@ -41,7 +43,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
                 if (!gameIsActive)
                 {
                     gameIsActive = true;
-                    photonView.RPC(nameof(MiniGameIsBeingPlayed), RpcTarget.OthersBuffered, miniGameName);
+                    photonView.RPC(nameof(MiniGameIsBeingPlayed), RpcTarget.AllBuffered, miniGameName);
                 }
                 break;
 
@@ -49,7 +51,23 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
                 if (!gameIsActive)
                 {
                     gameIsActive = true;
-                    photonView.RPC("MiniGameIsBeingPlayed", RpcTarget.OthersBuffered, miniGameName);
+                    photonView.RPC("MiniGameIsBeingPlayed", RpcTarget.AllBuffered, miniGameName);
+                }
+                break;
+
+            case "asteroid":
+                if (!gameIsActive)
+                {
+                    gameIsActive = true;
+                    photonView.RPC("MiniGameIsBeingPlayed", RpcTarget.AllBuffered, miniGameName);
+                }
+                break;
+
+            case "alienQTE":
+                if (!gameIsActive)
+                {
+                    gameIsActive = true;
+                    photonView.RPC("MiniGameIsBeingPlayed", RpcTarget.AllBuffered, miniGameName);
                 }
                 break;
 
@@ -59,10 +77,14 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void UnlockMiniGame(GameObject miniGame)
+    public void UnlockMiniGame(string miniGame)
     {
-        gameIsActive = false;
         photonView.RPC(nameof(MiniGameIsAvailable), RpcTarget.AllBuffered, miniGame);
+    }
+
+    public void LockMiniGame(string miniGame)
+    {
+        photonView.RPC(nameof(MiniGameDisable), RpcTarget.AllBuffered, miniGame);
     }
 
     [PunRPC]
@@ -86,14 +108,85 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
                 keycodeButton.SetActive(false);
                 break;
 
+            case "asteroid":
+                asteroidButton.SetActive(false);
+                break;
+
+            case "alienQTE":
+                alienButton.SetActive(false);
+                break;
+
             default:
                 break;
         }
     }
 
     [PunRPC]
-    void MiniGameIsAvailable(GameObject miniGame)
+    void MiniGameIsAvailable(string miniGame)
     {
-        miniGame.SetActive(true);
+        Debug.Log("minigame");
+        switch (miniGame)
+        {
+            case "simon":
+                simonButton.SetActive(true);
+                break;
+
+            case "qte":
+                qteButton.SetActive(true);
+                break;
+
+            case "robot":
+                robotButton.SetActive(true);
+                break;
+
+            case "keycode":
+                keycodeButton.SetActive(true);
+                break;
+
+            case "asteroid":
+                asteroidButton.SetActive(true);
+                break;
+
+            case "alienQTE":
+                alienButton.SetActive(true);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    [PunRPC]
+    void MiniGameDisable(string miniGame)
+    {
+        switch (miniGame)
+        {
+            case "simon":
+                simonButton.SetActive(false);
+                break;
+
+            case "qte":
+                qteButton.SetActive(false);
+                break;
+
+            case "robot":
+                robotButton.SetActive(false);
+                break;
+
+            case "keycode":
+                keycodeButton.SetActive(false);
+                break;
+
+            case "asteroid":
+                asteroidButton.SetActive(false);
+                break;
+
+            case "alienQTE":
+                alienButton.SetActive(false);
+                break;
+
+            default:
+                break;
+        }
     }
 }

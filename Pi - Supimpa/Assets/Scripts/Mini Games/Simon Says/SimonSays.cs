@@ -41,6 +41,10 @@ public class SimonSays : MonoBehaviour
         miniManager.miniGameName = "simon";
     }
 
+    private void OnDisable()
+    {
+        miniManager.miniGameName = "default";
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
