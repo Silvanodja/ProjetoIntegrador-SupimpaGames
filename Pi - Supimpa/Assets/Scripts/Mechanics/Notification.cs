@@ -37,11 +37,7 @@ public class Notification : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        //int i = 0;
-        if (NotificationInput())
-        {
-            photonView.RPC("NotificationMaster", RpcTarget.All, 0);
-        }
+
     }
 
     [PunRPC]
@@ -73,8 +69,8 @@ public class Notification : MonoBehaviourPunCallbacks
         Destroy(notification);
     }
 
-    bool NotificationInput()
+    public void NotificationInput()
     {
-        return Input.GetKeyDown(KeyCode.Space);
+        photonView.RPC("NotificationMaster", RpcTarget.All, 0);
     }
 }

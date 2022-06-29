@@ -27,8 +27,9 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
     public GameObject life;
     bool cooldown = false;
     [SerializeField] private HealthBar health;
+    DeathManager death;
 
-    bool isDeath = false;
+    public bool isDeath = false;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         interaction = GetComponent<InteractionSystem>();
         shotPooling = FindObjectOfType<Pooling>();
         miniGame = FindObjectOfType<CameraController>();
+        death = FindObjectOfType<DeathManager>();
     }
 
     public void StartCooldown()
@@ -85,6 +87,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         if (view.IsMine)
         {
             isDeath = true;
+            death.DeathCount(1);
         }
         photonView.RPC("EnemyForgetPlayer", RpcTarget.MasterClient);
     }
@@ -180,7 +183,6 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
-
     }
 
     [PunRPC]

@@ -27,6 +27,7 @@ public class HealthBar : MonoBehaviour
             canvas.SetActive(true);
         }
     }
+
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;

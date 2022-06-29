@@ -11,6 +11,7 @@ public class RobotGameController : MonoBehaviour
 
     public CameraController gameCamera;
     public MiniGameManager miniManager;
+    public CycleManager cycleManager;
 
     private void OnEnable()
     {
@@ -27,6 +28,7 @@ public class RobotGameController : MonoBehaviour
     private void OnDisable()
     {
         miniManager.miniGameName = "default";
+        cycleManager.robotOver = true;
     }
 
     void Update()

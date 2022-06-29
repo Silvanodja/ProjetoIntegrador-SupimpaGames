@@ -9,6 +9,7 @@ public class SimonSays : MonoBehaviour
     [SerializeField] GameObject[] lightArray;
     [SerializeField] int[] lightOrder;
     [SerializeField] CycleManager difficulty;
+    [SerializeField] SpaceshipHealth oxygen;
     //[SerializeField] GameObject simonSaysGamePanel;
 
     int level = 0;
@@ -43,17 +44,12 @@ public class SimonSays : MonoBehaviour
 
     private void OnDisable()
     {
+        oxygen.RestoreOxygen(100f);
         miniManager.miniGameName = "default";
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-            FindObjectOfType<AudioManager>().Play("MainTheme");
-            gameCamera.miniGameIsPlaying = false;
-            gameObject.SetActive(false);
-        }
+
     }
 
     public void ButtonClickOrder(int button)

@@ -19,8 +19,8 @@ public class EnemyHealthBar : MonoBehaviourPunCallbacks
     {
         view = GetComponent<PhotonView>();
         currentHealth = maxHealth;
-
     }
+
     private void Update()
     {
         if (view.IsMine)

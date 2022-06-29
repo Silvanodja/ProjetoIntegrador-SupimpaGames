@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -80, y: -19}
+  m_AnchoredPosition: {x: -80, y: -44}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4771701003882460524
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Asteroid  field incoming! Protect the ship!
+  m_text: Asteroid  field incoming! Protect the Ship!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f8967a2d3bf0a140885f0c4a0d1ab8e, type: 2}
   m_sharedMaterial: {fileID: -5665275969500487352, guid: 8f8967a2d3bf0a140885f0c4a0d1ab8e, type: 2}

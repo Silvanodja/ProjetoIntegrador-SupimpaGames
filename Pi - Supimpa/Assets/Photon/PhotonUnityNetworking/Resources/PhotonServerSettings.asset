@@ -66,6 +66,10 @@ MonoBehaviour:
   - Reset
   - Cooldown
   - MiniGameDisable
+  - DrainOxygen
+  - SetOxygen
+  - Victory
+  - Defeat
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

@@ -38,6 +38,9 @@ public class EnemyAi : MonoBehaviourPunCallbacks
 
     private PhotonView view;
     [SerializeField] private EnemyHealthBar  health;
+
+    private EnemyPool enemyPool;
+
     void Start()
     {
         view = GetComponent<PhotonView>();
@@ -48,6 +51,7 @@ public class EnemyAi : MonoBehaviourPunCallbacks
         currentHealth = maxHealth;
         waitCounter = waitTime;
         walkCkounter = walkTime;
+        enemyPool = FindObjectOfType<EnemyPool>();
         ChoseDirection();
     }
 
@@ -182,7 +186,7 @@ public class EnemyAi : MonoBehaviourPunCallbacks
             {
                 print("Acertou");
                 collision.GetComponent<GunShot>().photonView.RPC("Desactivate", RpcTarget.All);
-                health.photonView.RPC("TakeDamage", RpcTarget.All, 5);
+                health.photonView.RPC("TakeDamage", RpcTarget.All, 10);
             }        
     }
 
@@ -194,6 +198,7 @@ public class EnemyAi : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Desactive()
     {
+        enemyPool.alienCount++;
         gameObject.SetActive(false);
     }
 }

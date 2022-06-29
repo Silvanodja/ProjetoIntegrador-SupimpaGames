@@ -13,6 +13,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     private int playerInGame = 0;
     private List<PlayerController> players = new List<PlayerController>();
     public List<PlayerController> Players { get => players; private set => players = value; }
+    public GameObject defeat;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         FindObjectOfType<AudioManager>().Play("MainTheme");
         photonView.RPC("AddPlayer", RpcTarget.AllBuffered);
         Players = new List<PlayerController>();
+        pool.SetActive(false);
     }
 
     [PunRPC]
@@ -50,9 +52,6 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.B))
-        {
-            pool.SetActive(true);
-        }
+        
     }
 }

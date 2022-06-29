@@ -8,13 +8,16 @@ public class AlienInvasionQTE : MonoBehaviour
     bool flag;
     bool stop;
     public float timer;
+    public float aux;
     public MiniGameManager miniManager;
     public CycleManager cycleManager;
     public CameraController gameCamera;
     public TMP_Text text;
+    public GameObject pool;
 
     private void OnEnable()
     {
+        aux = timer;
         flag = false;
         stop = false;
         miniManager.miniGameName = "alienQTE";
@@ -37,6 +40,7 @@ public class AlienInvasionQTE : MonoBehaviour
         else if(timer <= 0)
         {
             stop = true;
+            pool.SetActive(true);
             StartCoroutine(Delay());
         }
     }
@@ -55,6 +59,7 @@ public class AlienInvasionQTE : MonoBehaviour
         gameCamera.miniGameIsPlaying = false;
         miniManager.miniGameName = "default";
         cycleManager.ResetTimer("alienQTE");
+        timer = aux;
         gameObject.SetActive(false);
     }
 }

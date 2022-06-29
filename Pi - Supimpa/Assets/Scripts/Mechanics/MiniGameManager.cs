@@ -17,6 +17,12 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     void Start()
     {
         gameIsActive = false;
+        qteButton.SetActive(false);
+        simonButton.SetActive(false);
+        keycodeButton.SetActive(false);
+        robotButton.SetActive(true);
+        asteroidButton.SetActive(false);
+        alienButton.SetActive(false);
     }
 
     void Update()
@@ -124,7 +130,6 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void MiniGameIsAvailable(string miniGame)
     {
-        Debug.Log("minigame");
         switch (miniGame)
         {
             case "simon":

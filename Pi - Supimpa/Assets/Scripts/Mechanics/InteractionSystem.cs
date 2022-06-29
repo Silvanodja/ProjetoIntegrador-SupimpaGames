@@ -9,9 +9,8 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
     public Transform detectionPoint;
     public float detectionRadius = 1f;
     public LayerMask detectionLayer;
-    //public GameObject miniGameAsteroids;
     public CameraController gameCamera;
-    //public MiniGameManager miniGameManager;
+    public MiniGameManager miniGameManager;
     public bool hasWeapon;
 
     Weapon gun;
@@ -20,6 +19,7 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
     {
         gun = FindObjectOfType<Weapon>();
         gameCamera = FindObjectOfType<CameraController>();
+        miniGameManager = FindObjectOfType<MiniGameManager>();
     }
 
     void Update()
@@ -72,7 +72,6 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
     bool MiniGame()
     {
         Collider2D hit = InteractionResult();
-        //Debug.Log(hit.gameObject.GetComponent<Interactable>());
         if (hit.gameObject.GetComponent<Interactable>() != null)
         {
             hit.gameObject.GetComponent<Interactable>().miniGame.SetActive(true);
@@ -80,7 +79,6 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
         }
         else
         {
-            //hit.gameObject.SetActive(false);
             return false;
         }
     }
@@ -88,7 +86,6 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
     bool Asteroids()
     {
         Collider2D hit = InteractionResult();
-        //Debug.Log(hit.gameObject.GetComponent<Interactable>());
         if (hit.gameObject.GetComponent<Interact>() != null)
         {
             hit.gameObject.GetComponent<Interact>().begin = true;
@@ -96,7 +93,6 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
         }
         else
         {
-            //hit.gameObject.SetActive(false);
             return false;
         }
     }

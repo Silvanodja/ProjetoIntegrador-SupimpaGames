@@ -45,7 +45,7 @@ public class Restarter : MonoBehaviour
         }
         else if (ativado == true)
         {
-            if (timer >= 5)
+            if (timer >= 10)
             {
                 FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
                 FindObjectOfType<AudioManager>().Play("MainTheme");

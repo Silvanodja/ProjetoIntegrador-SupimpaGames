@@ -216,6 +216,7 @@ MonoBehaviour:
   shootPosition: {fileID: 3479787762164206495}
   life: {fileID: 4547050460614080898}
   health: {fileID: 5804904488776991422}
+  isDeath: 0
 --- !u!114 &7256738868849243898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +235,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   gameCamera: {fileID: 0}
+  miniGameManager: {fileID: 0}
   hasWeapon: 0
 --- !u!50 &7256738868849243899
 Rigidbody2D:

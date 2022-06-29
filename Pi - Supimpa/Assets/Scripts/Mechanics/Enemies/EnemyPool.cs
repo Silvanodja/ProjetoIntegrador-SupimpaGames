@@ -12,20 +12,31 @@ public class EnemyPool : MonoBehaviourPunCallbacks
     public GameObject pasta;
 
     public List<GameObject> listOfObjects;
-
+    public int alienCount;
 
 
     void Start()
     {
+        
     }
+
     private void OnEnable()
     {
         if (PhotonNetwork.IsMasterClient)
         {
             photonView.RPC("CreateEnemy", RpcTarget.MasterClient);
         }
+
+        alienCount = 0;
     }
 
+    private void Update()
+    {
+        if (alienCount == beginsInstantiated)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 
     [PunRPC]
     private void CreateEnemy()
