@@ -1315,7 +1315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4c92fe8e729af49b5bd348bf27ca1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 126587326}
   miniGameIsPlaying: 0
 --- !u!81 &309894626
 AudioListener:
@@ -2706,8 +2705,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 7256738868849243895, guid: d3abf9adce8f0a64f9e3c52549fed063, type: 3}
   nave: {fileID: 0}
+  miniGame: {fileID: 0}
+  playerDetect: {fileID: 0}
   spawnPoint: {fileID: 530009424}
   cam: {fileID: 309894624}
+  gm: {fileID: 0}
 --- !u!4 &597549506
 Transform:
   m_ObjectHideFlags: 0
@@ -6724,8 +6726,11 @@ MonoBehaviour:
   - {fileID: 1889481322}
   - {fileID: 2027273335}
   lightOrder: 000000000000000000000000000000000000000000000000000000000000000000000000
+  difficulty: {fileID: 0}
+  oxygen: {fileID: 0}
   lightSpeed: 0.3
   gameCamera: {fileID: 0}
+  miniManager: {fileID: 0}
 --- !u!114 &1567163507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7281,6 +7286,8 @@ MonoBehaviour:
   codeLenght: 5
   codeResetTimeInSeconds: 0.5
   gameCamera: {fileID: 0}
+  miniManager: {fileID: 0}
+  difficulty: {fileID: 0}
 --- !u!114 &1737861044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9644,6 +9651,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3058788122087274713, guid: f519373b7033b67408472cc4186f3165, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8146035728518465776, guid: f519373b7033b67408472cc4186f3165, type: 3}
       propertyPath: m_RootOrder
       value: 6
