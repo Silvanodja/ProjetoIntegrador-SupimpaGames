@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Photon.Pun;
 
 
 public class Spaceship : MonoBehaviour
@@ -12,13 +13,16 @@ public class Spaceship : MonoBehaviour
     public Rigidbody2D torreta;
     Vector2 mousePosition;
     Vector2 movement;
-
+    float min = 0.05f;
+    float max = 0.95f;
     public ObjectPool bulletPool;
     public Health damage;
     Vector3 posNaTela;
+
+    SpaceshipHealth spaceshipHealth;
     void Start()
     {
-
+        spaceshipHealth = FindObjectOfType<SpaceshipHealth>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -29,6 +33,28 @@ public class Spaceship : MonoBehaviour
         Vector2 lookDir = mousePosition - torreta.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         torreta.rotation = angle;
+
+        posNaTela = Camera.main.WorldToViewportPoint(transform.position);
+
+        if (posNaTela.x < 0)
+        {
+            posNaTela.x = 1;
+        }
+        else if (posNaTela.x > 1)
+        {
+            posNaTela.x = 0;
+        }
+
+        if (posNaTela.y < 0)
+        {
+            posNaTela.y = 1;
+        }
+        else if (posNaTela.y > 1)
+        {
+            posNaTela.y = 0;
+        }
+        transform.position = Camera.main.ViewportToWorldPoint(posNaTela);
+
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -37,7 +63,7 @@ public class Spaceship : MonoBehaviour
         if (other.gameObject.tag == "Asteroid")
         {
             other.gameObject.SetActive(false);
-
+            spaceshipHealth.photonView.RPC("TakeDamage", RpcTarget.All, 5);
             damage.health = damage.health - 1;
         }
     }
@@ -67,27 +93,5 @@ public class Spaceship : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
-        //posNaTela = Camera.main.WorldToViewportPoint(transform.position);
-
-        //if (posNaTela.x < 0)
-        //{
-        //    posNaTela.x = 1;
-        //}
-        //else if (posNaTela.x > 1)
-        //{
-        //    posNaTela.x = 0;
-        //}
-
-        //if (posNaTela.y < 0)
-        //{
-        //    posNaTela.y = 1;
-        //}
-        //else if (posNaTela.y > 1)
-        //{
-        //    posNaTela.y = 0;
-        //}
-        //transform.position = Camera.main.ViewportToWorldPoint(posNaTela);
-
     }
 }

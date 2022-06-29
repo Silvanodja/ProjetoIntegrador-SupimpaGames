@@ -35,7 +35,8 @@ public class Restarter : MonoBehaviour
                 vida.SetActive(true);
                 nave.GetComponent<Spaceship>().enabled = true;
                 Camera.main.orthographicSize = 170;
-                Camera.main.cullingMask = ~(1 << 13);
+                Camera.main.cullingMask = ~(1 << 13) - (1 << 12) - (1 << 11) - (1 << 6);
+                
                 print(Camera.main.cullingMask);
                 miniManager.miniGameName = "asteroid";
 
