@@ -37,10 +37,11 @@ public class EnemyAi : MonoBehaviourPunCallbacks
     int currentHealth;
 
     private PhotonView view;
-    [SerializeField] private EnemyHealthBar  health;
+    [SerializeField] private EnemyHealthBar health;
 
     private EnemyPool enemyPool;
 
+    bool die = false;
     void Start()
     {
         view = GetComponent<PhotonView>();
@@ -95,68 +96,70 @@ public class EnemyAi : MonoBehaviourPunCallbacks
     void FixedUpdate()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-
-        float distanceFromPlayer = Vector2.Distance(ClosestPlayer().position, transform.position);
-        if (distanceFromPlayer < lineOfSite)
+        if (!die)
         {
-            if (seeker.IsDone())
+            float distanceFromPlayer = Vector2.Distance(ClosestPlayer().position, transform.position);
+            if (distanceFromPlayer < lineOfSite)
             {
-                seeker.StartPath(transform.position, ClosestPlayer().position, OnPathComplete);
-                if (ClosestPlayer().position.x > transform.position.x)
+                if (seeker.IsDone())
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
-                }
-                else
-                {
-                    transform.localScale = new Vector3(1, 1, 1);
-                }
-                anim.SetBool("Walking", true);
-            }
-
-        }
-        else
-        {
-            if (isWalking)
-            {
-                anim.SetBool("Walking", true);
-                walkCkounter -= Time.deltaTime;
-
-                switch (walkDirecition)
-                {
-                    case 0:
-                        rb.velocity = new Vector2(0, speed);
-                        transform.localScale = new Vector3(1, 1, 1);
-                        break;
-                    case 1:
-                        rb.velocity = new Vector2(speed, 0);
+                    seeker.StartPath(transform.position, ClosestPlayer().position, OnPathComplete);
+                    if (ClosestPlayer().position.x > transform.position.x)
+                    {
                         transform.localScale = new Vector3(-1, 1, 1);
-                        break;
-                    case 2:
-                        rb.velocity = new Vector2(0, -speed);
+                    }
+                    else
+                    {
                         transform.localScale = new Vector3(1, 1, 1);
-                        break;
-                    case 3:
-                        rb.velocity = new Vector2(-speed, 0);
-                        transform.localScale = new Vector3(1, 1, 1);
-                        break;
+                    }
+                    anim.SetBool("Walking", true);
                 }
 
-                if (walkCkounter < 0)
-                {
-                    isWalking = false;
-                    waitCounter = waitTime;
-                }
             }
             else
             {
-                anim.SetBool("Walking", false);
-                waitCounter -= Time.deltaTime;
-
-                rb.velocity = Vector2.zero;
-
-                if (waitCounter < 0)
+                if (isWalking)
                 {
-                    ChoseDirection();
+                    anim.SetBool("Walking", true);
+                    walkCkounter -= Time.deltaTime;
+
+                    switch (walkDirecition)
+                    {
+                        case 0:
+                            rb.velocity = new Vector2(0, speed);
+                            transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                        case 1:
+                            rb.velocity = new Vector2(speed, 0);
+                            transform.localScale = new Vector3(-1, 1, 1);
+                            break;
+                        case 2:
+                            rb.velocity = new Vector2(0, -speed);
+                            transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                        case 3:
+                            rb.velocity = new Vector2(-speed, 0);
+                            transform.localScale = new Vector3(1, 1, 1);
+                            break;
+                    }
+
+                    if (walkCkounter < 0)
+                    {
+                        isWalking = false;
+                        waitCounter = waitTime;
+                    }
+                }
+                else
+                {
+                    anim.SetBool("Walking", false);
+                    waitCounter -= Time.deltaTime;
+
+                    rb.velocity = Vector2.zero;
+
+                    if (waitCounter < 0)
+                    {
+                        ChoseDirection();
+                    }
                 }
             }
         }
@@ -182,12 +185,17 @@ public class EnemyAi : MonoBehaviourPunCallbacks
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            if (collision.tag == "Shoot")
-            {
-                print("Acertou");
-                collision.GetComponent<GunShot>().photonView.RPC("Desactivate", RpcTarget.All);
-                health.photonView.RPC("TakeDamage", RpcTarget.All, 10);
-            }        
+        if (collision.tag == "Shoot")
+        {
+            print("Acertou");
+            collision.GetComponent<GunShot>().photonView.RPC("Desactivate", RpcTarget.All);
+            health.photonView.RPC("TakeDamage", RpcTarget.All, 10);
+        }
+    }
+
+    void DieTime()
+    {
+        gameObject.SetActive(false);
     }
 
     public void Die()
@@ -198,7 +206,9 @@ public class EnemyAi : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Desactive()
     {
+        die = true;
         enemyPool.alienCount++;
-        gameObject.SetActive(false);
+        anim.SetTrigger("Die");
+        Invoke("DieTime", 3);
     }
 }
