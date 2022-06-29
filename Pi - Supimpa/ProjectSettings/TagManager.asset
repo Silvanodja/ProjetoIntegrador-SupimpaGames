@@ -27,10 +27,10 @@ TagManager:
   - Bullet
   - Boundary
   - Player
-  - Parede
+  - Interior
   - Arredores
   - Alien
-  - 
+  - MiniGames
   - 
   - 
   - 
