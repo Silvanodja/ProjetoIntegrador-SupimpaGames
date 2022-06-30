@@ -33,6 +33,10 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
                     gameCamera.miniGameIsPlaying = true;
                     FindObjectOfType<AudioManager>().Play("MiniGameTheme");
                     FindObjectOfType<AudioManager>().Pause("MainTheme");
+                    if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+                    {
+                        FindObjectOfType<AudioManager>().Pause("Invasion");
+                    }
                 }
 
                 else if (Asteroids())

@@ -27,7 +27,14 @@ public class Restarter : MonoBehaviour
             if (start.begin)
             {
                 FindObjectOfType<AudioManager>().Play("MiniGameTheme");
-                FindObjectOfType<AudioManager>().Pause("MainTheme");
+                if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+                {
+                    FindObjectOfType<AudioManager>().Pause("Invasion");
+                }
+                else
+                {
+                    FindObjectOfType<AudioManager>().Pause("MainTheme");
+                }
                 IinteriorDaNave.SetActive(false);
                 nave.SetActive(true);
                 municao.SetActive(true);
@@ -49,7 +56,14 @@ public class Restarter : MonoBehaviour
             if (timer >= 10)
             {
                 FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-                FindObjectOfType<AudioManager>().Play("MainTheme");
+                if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+                {
+                    FindObjectOfType<AudioManager>().Play("Invasion");
+                }
+                else
+                {
+                    FindObjectOfType<AudioManager>().Play("MainTheme");
+                }
                 IinteriorDaNave.SetActive(true);
                 nave.SetActive(false);
                 municao.SetActive(false);

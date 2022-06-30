@@ -44,6 +44,7 @@ public class RobotGameController : MonoBehaviour
 
         if (count == 5 && !itsOver)
         {
+            FindObjectOfType<AudioManager>().Play("ButtonCorrect");
             StartCoroutine(Delay());
             itsOver = true;
         }
@@ -53,7 +54,14 @@ public class RobotGameController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-        FindObjectOfType<AudioManager>().Play("MainTheme");
+        if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+        {
+            FindObjectOfType<AudioManager>().Play("Invasion");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("MainTheme");
+        }
         gameCamera.miniGameIsPlaying = false;
         gameObject.SetActive(false);
     }

@@ -47,6 +47,7 @@ public class SimonSays : MonoBehaviour
         oxygen.RestoreOxygen(100f);
         miniManager.miniGameName = "default";
     }
+
     private void Update()
     {
 
@@ -63,6 +64,7 @@ public class SimonSays : MonoBehaviour
         {
             won = false;
             passed = false;
+            FindObjectOfType<AudioManager>().Play("ButtonFail");
             StartCoroutine(ColorBlink(red));
         }
 
@@ -76,6 +78,7 @@ public class SimonSays : MonoBehaviour
         if (buttonsclicked == level && passed && buttonsclicked == difficulty.simonSaysLenght)
         {
             won = true;
+            FindObjectOfType<AudioManager>().Play("ButtonCorrect");
             StartCoroutine(ColorBlink(blue));
         }
     }
@@ -125,7 +128,16 @@ public class SimonSays : MonoBehaviour
         if (won)
         {
             FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-            FindObjectOfType<AudioManager>().Play("MainTheme");
+
+            if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+            {
+                FindObjectOfType<AudioManager>().Play("Invasion");
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().Play("MainTheme");
+            }
+
             gameCamera.miniGameIsPlaying = false;
             gameObject.SetActive(false);
         }

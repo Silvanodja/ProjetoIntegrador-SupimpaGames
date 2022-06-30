@@ -26,8 +26,15 @@ public class EnemyPool : MonoBehaviourPunCallbacks
         {
             photonView.RPC("CreateEnemy", RpcTarget.MasterClient);
         }
-
+        FindObjectOfType<AudioManager>().Pause("MainTheme");
+        FindObjectOfType<AudioManager>().Play("Invasion");
         alienCount = 0;
+    }
+
+    private void OnDisable()
+    {
+        FindObjectOfType<AudioManager>().Stop("Invasion");
+        FindObjectOfType<AudioManager>().Play("MainTheme");
     }
 
     private void Update()

@@ -8,6 +8,7 @@ using Photon.Pun;
 public class CycleManager : MonoBehaviourPunCallbacks
 {
     int numberOfCycles;
+    bool robotTag;
     bool cooldown;
     bool alienCooldown;
     bool asteroidCooldown;
@@ -132,14 +133,16 @@ public class CycleManager : MonoBehaviourPunCallbacks
                 notification.NotificationInput();
                 _rtimer = 0;
                 robotOver = false;
+                robotTag = true;
             }
         }
         else
         {
             _rtimer += Time.deltaTime;
-            if (robotTimer >= 30)
+            if (robotTimer >= 30 && robotTag)
             {
                 _rtimer = 0;
+                robotTag = false;
                 miniGames.UnlockMiniGame("robot");
                 notification.notificationPrefab = notificationPrefabRobot;
                 notification.NotificationInput();

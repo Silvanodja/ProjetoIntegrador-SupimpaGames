@@ -28,6 +28,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        FindObjectOfType<AudioManager>().Stop("Lobby");
         FindObjectOfType<AudioManager>().Play("MainTheme");
         photonView.RPC("AddPlayer", RpcTarget.AllBuffered);
         Players = new List<PlayerController>();

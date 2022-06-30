@@ -37,13 +37,6 @@ public class KeycodeMiniGame : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-            FindObjectOfType<AudioManager>().Play("MainTheme");
-            gameCamera.miniGameIsPlaying = false;
-            gameObject.SetActive(false);
-        }
     }
 
     public void ButtonClick(int number)
@@ -58,11 +51,13 @@ public class KeycodeMiniGame : MonoBehaviour
         if (inputCode.text == hiddenCode.text)
         {
             inputCode.text = "Correct";
+            FindObjectOfType<AudioManager>().Play("ButtonCorrect");
             StartCoroutine(ResetCodeWin());
         }
         else if (inputCode.text.Length >= codeLenght)
         {
             inputCode.text = "Failed";
+            FindObjectOfType<AudioManager>().Play("ButtonFail");
             StartCoroutine(ResetCodeFail());
         }
     }
@@ -78,7 +73,14 @@ public class KeycodeMiniGame : MonoBehaviour
         gameObject.SetActive(false);
         gameCamera.miniGameIsPlaying = false;
         FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-        FindObjectOfType<AudioManager>().Play("MainTheme");
+        if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+        {
+            FindObjectOfType<AudioManager>().Play("Invasion");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("MainTheme");
+        }
     }
 
     private IEnumerator ResetCodeFail()

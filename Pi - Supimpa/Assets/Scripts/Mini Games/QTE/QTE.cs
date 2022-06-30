@@ -93,7 +93,14 @@ public class QTE : MonoBehaviour
         {
             timer = 0;
             FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-            FindObjectOfType<AudioManager>().Play("MainTheme");
+            if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+            {
+                FindObjectOfType<AudioManager>().Play("Invasion");
+            }
+            else
+            {
+                FindObjectOfType<AudioManager>().Play("MainTheme");
+            }
             gameCamera.miniGameIsPlaying = false;
             gameObject.SetActive(false);
         }
@@ -105,12 +112,14 @@ public class QTE : MonoBehaviour
         {
             timer += playerTimeGain;
             buttonPressed = true;
-            StartCoroutine(CorrectOrWrong(correctText));
+            FindObjectOfType<AudioManager>().Play("ButtonCorrect");
+            //StartCoroutine(CorrectOrWrong(correctText));
         }
         else
         {
             timer -= playerTimeLost;
-            StartCoroutine(CorrectOrWrong(wrongText));
+            FindObjectOfType<AudioManager>().Play("ButtonFail");
+            //StartCoroutine(CorrectOrWrong(wrongText));
             if (timer < 0)
             {
                 timer = 0;

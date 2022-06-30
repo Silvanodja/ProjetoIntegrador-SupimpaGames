@@ -35,11 +35,13 @@ public class AlienInvasionQTE : MonoBehaviour
         if (flag && timer > 0)
         {
             stop = true;
+            FindObjectOfType<AudioManager>().Play("ButtonCorrect");
             StartCoroutine(Delay());
         }
         else if(timer <= 0)
         {
             stop = true;
+            FindObjectOfType<AudioManager>().Play("ButtonFail");
             pool.SetActive(true);
             StartCoroutine(Delay());
         }
@@ -55,7 +57,14 @@ public class AlienInvasionQTE : MonoBehaviour
         text.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         FindObjectOfType<AudioManager>().Stop("MiniGameTheme");
-        FindObjectOfType<AudioManager>().Play("MainTheme");
+        if (FindObjectOfType<AudioManager>().isPlaying("Invasion"))
+        {
+            FindObjectOfType<AudioManager>().Play("Invasion");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("MainTheme");
+        }
         gameCamera.miniGameIsPlaying = false;
         miniManager.miniGameName = "default";
         cycleManager.ResetTimer("alienQTE");
