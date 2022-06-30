@@ -12,6 +12,7 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
     public CameraController gameCamera;
     public MiniGameManager miniGameManager;
     public bool hasWeapon;
+    public MiniRobot robot;
 
     Weapon gun;
 
@@ -20,6 +21,7 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
         gun = FindObjectOfType<Weapon>();
         gameCamera = FindObjectOfType<CameraController>();
         miniGameManager = FindObjectOfType<MiniGameManager>();
+        robot = FindObjectOfType<MiniRobot>();
     }
 
     void Update()
@@ -42,6 +44,11 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
                 else if (Asteroids())
                 {
                     gameCamera.miniGameIsPlaying = true;
+                }
+
+                else if (MiniRobot())
+                {
+                    FindObjectOfType<AudioManager>().Play("ButtonCorrect");
                 }
 
                 else if (WeaponPickUp())
@@ -81,6 +88,28 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
             if (!hasWeapon)
             {
                 hit.gameObject.GetComponent<Interactable>().miniGame.SetActive(true);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool MiniRobot()
+    {
+        Collider2D hit = InteractionResult();
+        Debug.Log(hit);
+        if (hit.gameObject.GetComponent<MiniRobot>() != null)
+        {
+            if (!hasWeapon)
+            {
+                photonView.RPC(nameof(DeactivateRobot), RpcTarget.AllBuffered);
                 return true;
             }
             else
@@ -148,5 +177,11 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(detectionPoint.position, detectionRadius);
+    }
+
+    [PunRPC]
+    void DeactivateRobot()
+    {
+        robot.gameObject.SetActive(false);
     }
 }

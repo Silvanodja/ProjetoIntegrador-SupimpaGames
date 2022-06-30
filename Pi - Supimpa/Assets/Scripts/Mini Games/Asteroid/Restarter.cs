@@ -76,6 +76,7 @@ public class Restarter : MonoBehaviour
                 //player.GetComponent<Player>().enabled = true;
                 miniManager.miniGameName = "default";
                 cycleManager.ResetTimer("asteroid");
+                cycleManager.asteroidCooldown = false;
                 ativado = false;
             }
         }

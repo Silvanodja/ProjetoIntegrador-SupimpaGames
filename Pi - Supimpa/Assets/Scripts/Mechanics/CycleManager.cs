@@ -9,12 +9,13 @@ public class CycleManager : MonoBehaviourPunCallbacks
 {
     int numberOfCycles;
     bool robotTag;
+    public bool miniRobotTag;
     bool cooldown;
-    bool alienCooldown;
-    bool asteroidCooldown;
-    bool qteCooldown;
-    bool alienQTECooldown;
-    bool keycodeCooldown;
+    public bool alienCooldown;
+    public bool asteroidCooldown;
+    public bool qteCooldown;
+    public bool alienQTECooldown;
+    public bool keycodeCooldown;
     [SerializeField]bool rpcCooldown;
     public float floatToInt;
     public float timer;
@@ -38,6 +39,7 @@ public class CycleManager : MonoBehaviourPunCallbacks
 
     public MiniGameManager miniGames;
     public GameObject pool;
+    public GameObject robot;
 
     SpaceshipHealth spaceshipHealth;
 
@@ -49,7 +51,9 @@ public class CycleManager : MonoBehaviourPunCallbacks
     public GameObject notificationPrefabAlien;
     public GameObject notificationPrefabAlienQTE;
     public GameObject notificationPrefabRobot;
+    public GameObject notificationPrefabMiniRobot;
     public GameObject notificationPrefabFuel;
+    public GameObject notificationPrefabFix;
     public GameObject notificationPrefabAsteroid;
 
     void Start()
@@ -58,6 +62,8 @@ public class CycleManager : MonoBehaviourPunCallbacks
         numberOfCycles = 0;
         cycleUI.text = "Cycle " + numberOfCycles;
         spaceshipHealth = FindObjectOfType<SpaceshipHealth>();
+        notification.notificationPrefab = notificationPrefabRobot;
+        notification.NotificationInput();
     }
 
     void Update()
@@ -125,15 +131,17 @@ public class CycleManager : MonoBehaviourPunCallbacks
 
         if (robotOver)
         {
-            _rtimer += Time.deltaTime;
-            if (robotTimer >= 10)
+            photonView.RPC(nameof(RobotCheck), RpcTarget.AllBuffered);
+
+            if (!robot.activeInHierarchy)
+            {
+                _rtimer += Time.deltaTime;
+            }
+
+            if (robotTimer >= 10 && !robot.activeInHierarchy)
             {
                 miniGames.UnlockMiniGame("simon");
-                notification.notificationPrefab = notificationPrefabSimon;
-                notification.NotificationInput();
-                _rtimer = 0;
-                robotOver = false;
-                robotTag = true;
+                _rtimer = 0f;
             }
         }
         else
@@ -141,11 +149,8 @@ public class CycleManager : MonoBehaviourPunCallbacks
             _rtimer += Time.deltaTime;
             if (robotTimer >= 30 && robotTag)
             {
-                _rtimer = 0;
-                robotTag = false;
-                miniGames.UnlockMiniGame("robot");
-                notification.notificationPrefab = notificationPrefabRobot;
-                notification.NotificationInput();
+                photonView.RPC(nameof(RobotReset), RpcTarget.AllBuffered);
+                _rtimer = 0f;
             }
         }
     }
@@ -182,7 +187,7 @@ public class CycleManager : MonoBehaviourPunCallbacks
         else if (keyCodeTimer % 120 == 0 && keyCodeTimer != 0 && !keycodeCooldown)
         {
             miniGames.UnlockMiniGame("keycode");
-            notification.notificationPrefab = notificationPrefabAlienQTE;
+            notification.notificationPrefab = notificationPrefabFix;
             notification.NotificationInput();
             keycodeCooldown = true;
         }
@@ -200,18 +205,21 @@ public class CycleManager : MonoBehaviourPunCallbacks
             miniGames.LockMiniGame("asteroid");
             ResetTimer("asteroid");
             spaceshipHealth.DamageHealth(10);
+            asteroidCooldown = false;
         }
         else if (keyCodeTimer % 140 == 0 && keyCodeTimer != 0 && miniGames.keycodeButton.activeInHierarchy)
         {
             miniGames.LockMiniGame("keycode");
             ResetTimer("keycode");
             spaceshipHealth.DamageHealth(10);
+            keycodeCooldown = false;
         }
         else if (qteTimer % 100 == 0 && qteTimer != 0 && miniGames.qteButton.activeInHierarchy)
         {
             miniGames.LockMiniGame("qte");
             ResetTimer("qte");
             spaceshipHealth.DamageHealth(10);
+            qteCooldown = false;
         }
         else if (alienQteTimer % 80 == 0 && alienQteTimer != 0 && miniGames.alienButton.activeInHierarchy)
         {
@@ -223,6 +231,8 @@ public class CycleManager : MonoBehaviourPunCallbacks
             spaceshipHealth.DamageHealth(10);
             notification.notificationPrefab = notificationPrefabAlien;
             notification.NotificationInput();
+            alienQTECooldown = false;
+            alienCooldown = false;
         }
     }
 
@@ -278,7 +288,7 @@ public class CycleManager : MonoBehaviourPunCallbacks
                 _atimer = 0;
                 break;
 
-            case "keycode":
+            case "fix":
                 _ktimer = 0;
                 break;
 
@@ -303,5 +313,76 @@ public class CycleManager : MonoBehaviourPunCallbacks
     void Victory()
     {
         Time.timeScale = 0;
+    }
+
+    [PunRPC]
+    void ActivateRobot()
+    {
+        robot.SetActive(true);
+    }
+
+    [PunRPC]
+    void RobotCheck()
+    {
+        if (!miniRobotTag)
+        {          
+            notification.notificationPrefab = notificationPrefabMiniRobot;
+            notification.NotificationInput();
+            miniRobotTag = true;
+            photonView.RPC(nameof(ActivateRobot), RpcTarget.AllBuffered);
+            _rtimer = 0f;
+        }
+
+        if (robotTimer >= 10 && !robot.activeInHierarchy)
+        {
+            notification.notificationPrefab = notificationPrefabSimon;
+            notification.NotificationInput();
+            _rtimer = 0f;
+            robotOver = false;
+            robotTag = true;
+        }
+    }
+
+    [PunRPC]
+    void RobotReset()
+    {
+        if (robotTimer >= 30 && robotTag)
+        {
+            _rtimer = 0f;
+            robotTag = false;
+            notification.notificationPrefab = notificationPrefabRobot;
+            notification.NotificationInput();
+            miniGames.UnlockMiniGame("robot");
+        }
+    }
+
+    [PunRPC]
+    void ActivateNotification(string name)
+    {
+        switch (name)
+        {
+            case "asteroid":
+                _atimer = 0;
+                break;
+
+            case "keycode":
+                _ktimer = 0;
+                break;
+
+            case "qte":
+                _qtimer = 0;
+                break;
+
+            case "alienQTE":
+                _aitimer = 0;
+                break;
+
+            case "invasion":
+                _itimer = 0;
+                break;
+
+            default:
+                break;
+        }
     }
 }

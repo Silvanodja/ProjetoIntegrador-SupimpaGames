@@ -73,6 +73,11 @@ MonoBehaviour:
   - EnemyRemembersPlayer
   - Revive
   - DieTime
+  - ActivateRobot
+  - DeactivateRobot
+  - ActivateNotification
+  - RobotCheck
+  - RobotReset
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

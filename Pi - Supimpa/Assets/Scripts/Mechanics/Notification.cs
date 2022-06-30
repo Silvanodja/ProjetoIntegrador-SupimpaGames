@@ -24,6 +24,7 @@ public class Notification : MonoBehaviourPunCallbacks
     NotificationClass notification;
     public Canvas notificationUI;
     public GameObject notificationPrefab;
+    public int count;
     Vector3 initialPosition;
 
 
@@ -33,6 +34,7 @@ public class Notification : MonoBehaviourPunCallbacks
                         notificationUI.transform.position.y - 20,
                         notificationUI.transform.position.z);
         notificationPrefab.transform.localPosition = initialPosition;
+        count = 0;
     }
 
     void Update()
@@ -43,21 +45,27 @@ public class Notification : MonoBehaviourPunCallbacks
     [PunRPC]
     public void NotificationMaster(int i)
     {
-        notification = new NotificationClass(notificationPrefab, false);
-        notificationList.Enqueue(notification);
-
-        foreach (NotificationClass item in notificationList)
+        count++;
+        if (count == PhotonNetwork.PlayerList.Length)
         {
-            i++;
-            if (!item.isOnScreen)
+            notification = new NotificationClass(notificationPrefab, false);
+            notificationList.Enqueue(notification);
+
+            foreach (NotificationClass item in notificationList)
             {
-                notificationPrompt = Instantiate(notificationPrefab, notificationUI.transform);
-                notificationPrefab.transform.localPosition = new Vector3(initialPosition.x,
-                    initialPosition.y - (25 * i),
-                    initialPosition.z);
-                notification.isOnScreen = true;
-                StartCoroutine(DespawnNotification(notificationPrompt));
+                i++;
+                if (!item.isOnScreen)
+                {
+
+                    notificationPrompt = Instantiate(notificationPrefab, notificationUI.transform);
+                    notificationPrefab.transform.position = new Vector3(initialPosition.x,
+                        initialPosition.y - (25 * i),
+                        initialPosition.z);
+                    notification.isOnScreen = true;
+                    StartCoroutine(DespawnNotification(notificationPrompt));
+                }
             }
+            count = 0;
         }
     }
 

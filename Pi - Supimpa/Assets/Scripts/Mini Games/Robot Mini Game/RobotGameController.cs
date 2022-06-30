@@ -29,6 +29,7 @@ public class RobotGameController : MonoBehaviour
     {
         miniManager.miniGameName = "default";
         cycleManager.robotOver = true;
+        cycleManager.miniRobotTag = false;
     }
 
     void Update()

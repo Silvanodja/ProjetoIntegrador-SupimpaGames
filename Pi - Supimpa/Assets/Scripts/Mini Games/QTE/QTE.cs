@@ -55,7 +55,7 @@ public class QTE : MonoBehaviour
     private void OnDisable()
     {
         miniManager.miniGameName = "default";
-        difficulty.ResetTimer("qte");
+
     }
 
     void Update()

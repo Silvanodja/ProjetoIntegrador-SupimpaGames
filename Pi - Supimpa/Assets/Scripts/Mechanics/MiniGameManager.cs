@@ -12,6 +12,7 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
     public GameObject robotButton;
     public GameObject asteroidButton;
     public GameObject alienButton;
+    public CycleManager cycleManager;
     public string miniGameName;
 
     void Start()
@@ -172,6 +173,8 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
             case "qte":
                 qteButton.SetActive(false);
+                cycleManager.ResetTimer("qte");
+                cycleManager.qteCooldown = false;
                 break;
 
             case "robot":
@@ -180,6 +183,8 @@ public class MiniGameManager : MonoBehaviourPunCallbacks
 
             case "keycode":
                 keycodeButton.SetActive(false);
+                cycleManager.ResetTimer("keycode");
+                cycleManager.keycodeCooldown = false;
                 break;
 
             case "asteroid":

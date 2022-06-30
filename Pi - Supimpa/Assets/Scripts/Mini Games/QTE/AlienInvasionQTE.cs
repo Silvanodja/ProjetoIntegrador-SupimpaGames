@@ -24,6 +24,12 @@ public class AlienInvasionQTE : MonoBehaviour
         text.gameObject.SetActive(false);
     }
 
+    private void OnDisable()
+    {
+        cycleManager.ResetTimer("alienQTE");
+        cycleManager.alienQTECooldown = false;
+    }
+
     // Update is called once per frame
     void Update()
     {

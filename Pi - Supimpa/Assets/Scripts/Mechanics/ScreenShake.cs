@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class ScreenShake : MonoBehaviour
+public class ScreenShake : MonoBehaviourPunCallbacks
 {
     public static ScreenShake instance;
 

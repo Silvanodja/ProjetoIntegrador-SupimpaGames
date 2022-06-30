@@ -123,6 +123,7 @@ public class SpaceshipHealth : MonoBehaviourPunCallbacks
         if (currentHealth > 0)
         {
             currentHealth -= damage;
+            ScreenShake.instance.StartShake(1f, .7f);
             SetHealth(currentHealth);
         }
     }

@@ -22,6 +22,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        PlayerPrefs.DeleteAll();
         PhotonNetwork.LoadLevel("GabrielTeste");
     }
 }

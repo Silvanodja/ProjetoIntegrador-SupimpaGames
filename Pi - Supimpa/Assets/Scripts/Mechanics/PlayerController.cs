@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
             respawnCounter -= Time.deltaTime;
             if (respawnCounter < 0)
             {
-                int position = Random.RandomRange(0, respawnPoints.Length);
+                int position = Random.Range(0, respawnPoints.Length);
                 gameObject.transform.position = respawnPoints[position].transform.position;
                 respawnCounter = respawnTime;
                 Revive();

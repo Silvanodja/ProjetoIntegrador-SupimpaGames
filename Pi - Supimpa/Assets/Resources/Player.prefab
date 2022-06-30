@@ -238,6 +238,7 @@ MonoBehaviour:
   gameCamera: {fileID: 0}
   miniGameManager: {fileID: 0}
   hasWeapon: 0
+  robot: {fileID: 0}
 --- !u!50 &7256738868849243899
 Rigidbody2D:
   serializedVersion: 4

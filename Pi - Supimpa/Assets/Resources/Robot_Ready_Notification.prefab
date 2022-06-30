@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4771701003882460526}
   - component: {fileID: 4771701003882460524}
   - component: {fileID: 4771701003882460525}
+  - component: {fileID: -8683838266937042509}
   m_Layer: 5
-  m_Name: HalfHealth_Notification
+  m_Name: Robot_Ready_Notification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3065b5c562ec34647a7bb587557535bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38db9b0446d91ab418d5dddd7c5cc126, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -77,6 +78,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-8683838266937042509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4771701003882460527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4771701004782340498
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The Ship is at Half Health!
+  m_text: The Exploration Robot is ready gather materials!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f8967a2d3bf0a140885f0c4a0d1ab8e, type: 2}
   m_sharedMaterial: {fileID: -5665275969500487352, guid: 8f8967a2d3bf0a140885f0c4a0d1ab8e, type: 2}
@@ -170,8 +193,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9
-  m_fontSizeBase: 9
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
