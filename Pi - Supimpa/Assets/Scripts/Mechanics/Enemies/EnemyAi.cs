@@ -31,6 +31,9 @@ public class EnemyAi : MonoBehaviourPunCallbacks
     [SerializeField] private float waitTime;
     float waitCounter;
 
+    [SerializeField] private float deathTime;
+    float deathCounter;
+
     int walkDirecition;
 
     public int maxHealth = 100;
@@ -52,6 +55,7 @@ public class EnemyAi : MonoBehaviourPunCallbacks
         currentHealth = maxHealth;
         waitCounter = waitTime;
         walkCkounter = walkTime;
+        deathCounter = deathTime;
         enemyPool = FindObjectOfType<EnemyPool>();
         ChoseDirection();
     }
@@ -183,16 +187,34 @@ public class EnemyAi : MonoBehaviourPunCallbacks
         }
     }
 
+    private void Update()
+    {
+        if (die)
+        {
+            deathCounter -= Time.deltaTime;
+            if(deathCounter < 0)
+            {
+                rb.velocity = Vector2.zero;
+                die = false;
+                photonView.RPC("DieTime", RpcTarget.All);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Shoot")
         {
             print("Acertou");
             collision.GetComponent<GunShot>().photonView.RPC("Desactivate", RpcTarget.All);
-            health.photonView.RPC("TakeDamage", RpcTarget.All, 10);
+            if (!die)
+            {
+                health.photonView.RPC("TakeDamage", RpcTarget.All, 10);
+            }
         }
     }
 
+    [PunRPC]
     void DieTime()
     {
         gameObject.SetActive(false);
@@ -200,15 +222,14 @@ public class EnemyAi : MonoBehaviourPunCallbacks
 
     public void Die()
     {
-        photonView.RPC("Desactive", RpcTarget.All);
+        die = true;
+        anim.SetTrigger("Die");
+        photonView.RPC("Desactive", RpcTarget.MasterClient);
     }
 
     [PunRPC]
     public void Desactive()
     {
-        die = true;
         enemyPool.alienCount++;
-        anim.SetTrigger("Die");
-        Invoke("DieTime", 3);
     }
 }

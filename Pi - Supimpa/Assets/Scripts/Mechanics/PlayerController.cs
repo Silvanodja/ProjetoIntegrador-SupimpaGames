@@ -31,8 +31,15 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
 
     public bool isDeath = false;
 
+    GameObject[] respawnPoints;
+
+    [SerializeField] private float respawnTime;
+    float respawnCounter;
+
     void Start()
     {
+        respawnCounter = respawnTime;
+        respawnPoints = GameObject.FindGameObjectsWithTag("RespawnPoint");
         view = GetComponent<PhotonView>();
         physics = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -78,10 +85,22 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         }
     }
 
+    public void Revive()
+    {
+        if (view.IsMine)
+        {
+            isDeath = false;
+            anim.SetTrigger("Revive");
+            gameObject.tag = "Player";
+        }
+        health.photonView.RPC("Revive", RpcTarget.MasterClient);
+    }
+
     public void Die()
     {
         if (!isDeath)
         {
+            interaction.hasWeapon = false;
             anim.SetTrigger("Death");
         }
         if (view.IsMine)
@@ -89,21 +108,28 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
             isDeath = true;
             death.DeathCount(1);
         }
-        photonView.RPC("EnemyForgetPlayer", RpcTarget.MasterClient);
+        photonView.RPC("EnemyForgetPlayer", RpcTarget.All);
     }
 
     [PunRPC]
     void EnemyForgetPlayer()
     {
-        if (view.IsMine)
-        {
-            interaction.hasWeapon = false;
-        }
         gameObject.tag = "Player is Death";
     }
 
     void Update()
     {
+        if (isDeath)
+        {
+            respawnCounter -= Time.deltaTime;
+            if (respawnCounter < 0)
+            {
+                int position = Random.RandomRange(0, respawnPoints.Length);
+                gameObject.transform.position = respawnPoints[position].transform.position;
+                respawnCounter = respawnTime;
+                Revive();
+            }
+        }
         if (view.IsMine)
         {
             life.SetActive(true);
@@ -169,7 +195,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         {
             anim.SetBool("Front", false);
         }
-        
+
         if (Input.GetMouseButtonDown(0) && interaction.hasWeapon)
         {
             photonView.RPC("Shoot", RpcTarget.All, shootPositionValue);

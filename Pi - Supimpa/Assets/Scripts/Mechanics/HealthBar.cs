@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : MonoBehaviourPunCallbacks
 {
     public Slider slider;
     public GameObject canvas;
@@ -36,6 +36,15 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(int health)
     {
         slider.value = health;
+    }
+
+    [PunRPC]
+    public void Revive()
+    {
+        if (view.IsMine){
+            currentHealth = maxHealth;
+            SetHealth(currentHealth);
+        }
     }
 
     public void TakeDamage(int damage)

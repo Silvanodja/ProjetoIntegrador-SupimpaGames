@@ -74,8 +74,15 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
         Collider2D hit = InteractionResult();
         if (hit.gameObject.GetComponent<Interactable>() != null)
         {
-            hit.gameObject.GetComponent<Interactable>().miniGame.SetActive(true);
-            return true;
+            if (!hasWeapon)
+            {
+                hit.gameObject.GetComponent<Interactable>().miniGame.SetActive(true);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
@@ -88,8 +95,15 @@ public class InteractionSystem : MonoBehaviourPunCallbacks
         Collider2D hit = InteractionResult();
         if (hit.gameObject.GetComponent<Interact>() != null)
         {
-            hit.gameObject.GetComponent<Interact>().begin = true;
-            return true;
+            if (!hasWeapon)
+            {
+                hit.gameObject.GetComponent<Interact>().begin = true;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {
