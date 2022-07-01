@@ -12,6 +12,8 @@ public class Restarter : MonoBehaviour
     public CycleManager cycleManager;
     public float timer;
     public Interact start;
+    public GameObject space;
+    public GameObject stars;
 
     private void Start()
     {
@@ -47,6 +49,9 @@ public class Restarter : MonoBehaviour
                 print(Camera.main.cullingMask);
                 miniManager.miniGameName = "asteroid";
 
+                space.SetActive(true);
+                stars.SetActive(true);
+
                 //player.GetComponent<Player>().enabled = false;
                 ativado = true;
             }
@@ -78,6 +83,9 @@ public class Restarter : MonoBehaviour
                 cycleManager.ResetTimer("asteroid");
                 cycleManager.asteroidCooldown = false;
                 ativado = false;
+
+                space.SetActive(false);
+                stars.SetActive(false);
             }
         }
     }

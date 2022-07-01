@@ -131,6 +131,7 @@ public class SpaceshipHealth : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Defeat()
     {
+        ScreenShake.instance.StartShake(0f, 0f);
         Time.timeScale = 0;
     }
 }
