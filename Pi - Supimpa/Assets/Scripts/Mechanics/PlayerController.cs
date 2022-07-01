@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
 
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
     [SerializeField] private float respawnTime;
     float respawnCounter;
 
+    public TextMeshProUGUI nickDisplay;
     void Start()
     {
         respawnCounter = respawnTime;
@@ -47,6 +49,15 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         shotPooling = FindObjectOfType<Pooling>();
         miniGame = FindObjectOfType<CameraController>();
         death = FindObjectOfType<DeathManager>();
+
+        if (view.IsMine)
+        {
+            nickDisplay.text = PhotonNetwork.NickName;
+        }
+        else
+        {
+            nickDisplay.text = view.Owner.NickName;
+        }
     }
 
     public void StartCooldown()
@@ -204,10 +215,12 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         if (horizontal < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+            nickDisplay.transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (horizontal > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            nickDisplay.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
