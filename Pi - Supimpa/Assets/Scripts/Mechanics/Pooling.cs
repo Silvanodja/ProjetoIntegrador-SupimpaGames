@@ -15,20 +15,31 @@ public class Pooling : MonoBehaviourPunCallbacks
 
     [SerializeField] private string prefabLocation;
 
-    [PunRPC]
     void Start()
     {
         listOfObjects = new List<GameObject>();
-        CreateAmmunition();
+        photonView.RPC("CreateAmmunition", RpcTarget.MasterClient);
     }
 
+    [PunRPC]
     private void CreateAmmunition()
     {
         for (int i = 0; i < beginsInstantiated; i++)
         {
-            listOfObjects.Add(PhotonNetwork.Instantiate(prefabLocation, Vector3.zero, Quaternion.identity));
-            listOfObjects[i].SetActive(false);
-            listOfObjects[i].transform.SetParent(pasta.transform);
+            var bullet = PhotonNetwork.Instantiate(prefabLocation, Vector3.zero, Quaternion.identity);
+            listOfObjects.Add(bullet);
+            bullet.SetActive(false);
+            bullet.transform.SetParent(pasta.transform);
+        }
+        photonView.RPC("DesactioveBullet", RpcTarget.Others);
+    }
+    [PunRPC]
+    public void DesactioveBullet()
+    {
+        foreach (var item in GameObject.FindObjectsOfType<GunShot>())
+        {
+            listOfObjects.Add(item.gameObject);
+            item.gameObject.SetActive(false);
         }
     }
 

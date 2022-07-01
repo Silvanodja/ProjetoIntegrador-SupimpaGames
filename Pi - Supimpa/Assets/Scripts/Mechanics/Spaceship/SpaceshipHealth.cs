@@ -52,7 +52,6 @@ public class SpaceshipHealth : MonoBehaviourPunCallbacks
 
         if (currentHealth <= 0 || oxygenSlider.value <= 0)
         {
-            defeat.SetActive(true);
             photonView.RPC(nameof(Defeat), RpcTarget.All);
         }
 
@@ -131,6 +130,7 @@ public class SpaceshipHealth : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Defeat()
     {
+        defeat.SetActive(true);
         ScreenShake.instance.StartShake(0f, 0f);
         Time.timeScale = 0;
     }

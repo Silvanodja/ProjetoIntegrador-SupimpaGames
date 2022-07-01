@@ -39,6 +39,13 @@ public class EnemyHealthBar : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
+    public void Revive()
+    {
+        currentHealth = maxHealth;
+        SetHealth(currentHealth);
+    }
+
+    [PunRPC]
     public void TakeDamage(int damage)
     {
         if (currentHealth > 0)

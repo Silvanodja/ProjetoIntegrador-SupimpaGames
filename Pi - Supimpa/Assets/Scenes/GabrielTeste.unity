@@ -10977,6 +10977,7 @@ GameObject:
   - component: {fileID: 997193280}
   - component: {fileID: 997193279}
   - component: {fileID: 997193278}
+  - component: {fileID: 997193282}
   m_Layer: 6
   m_Name: WeaponCache (3)
   m_TagString: Untagged
@@ -11098,6 +11099,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &997193282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997193276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 19
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1008728600
 GameObject:
   m_ObjectHideFlags: 0
@@ -29936,6 +29959,7 @@ GameObject:
   - component: {fileID: 1487233201}
   - component: {fileID: 1487233200}
   - component: {fileID: 1487233199}
+  - component: {fileID: 1487233203}
   m_Layer: 6
   m_Name: WeaponCache (1)
   m_TagString: Untagged
@@ -29971,7 +29995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToInstantiate: {fileID: 5116436654685124064, guid: f3b51108b6184e342bd10d7f86a71fc5, type: 3}
-  beginsInstantiated: 10
+  beginsInstantiated: 2
   pasta: {fileID: 1487233197}
   listOfObjects: []
   canIncrease: 1
@@ -30057,6 +30081,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1487233203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487233197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 22
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1490628934
 GameObject:
   m_ObjectHideFlags: 0
@@ -35549,7 +35595,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1576258717}
   - component: {fileID: 1576258719}
-  - component: {fileID: 1576258720}
   - component: {fileID: 1576258718}
   m_Layer: 0
   m_Name: EnemyPool
@@ -35557,7 +35602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1576258717
 Transform:
   m_ObjectHideFlags: 0
@@ -35621,25 +35666,6 @@ MonoBehaviour:
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1576258720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576258716}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c04f931dd84f0c4498c607ab83a4ddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 810897070}
-  - {fileID: 1937894254}
-  - {fileID: 886004989}
-  - {fileID: 855415637}
-  enemy: {fileID: 2983772207261598603, guid: 582c6d55821acbe4484d0d440659252f, type: 3}
-  startTimeBtwSpawns: 2
 --- !u!1 &1579427204
 GameObject:
   m_ObjectHideFlags: 0
@@ -42760,6 +42786,7 @@ GameObject:
   - component: {fileID: 1772136360}
   - component: {fileID: 1772136359}
   - component: {fileID: 1772136358}
+  - component: {fileID: 1772136362}
   m_Layer: 6
   m_Name: WeaponCache (4)
   m_TagString: Untagged
@@ -42881,6 +42908,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1772136362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772136356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 21
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!213 &1773954392
 Sprite:
   m_ObjectHideFlags: 0
@@ -44188,6 +44237,7 @@ GameObject:
   - component: {fileID: 1948250994}
   - component: {fileID: 1948250993}
   - component: {fileID: 1948250992}
+  - component: {fileID: 1948250996}
   m_Layer: 6
   m_Name: WeaponCache (2)
   m_TagString: Untagged
@@ -44309,6 +44359,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1948250996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948250990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 20
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1952752293
 GameObject:
   m_ObjectHideFlags: 0

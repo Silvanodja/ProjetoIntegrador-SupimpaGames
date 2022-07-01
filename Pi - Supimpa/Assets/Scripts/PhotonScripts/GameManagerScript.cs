@@ -32,7 +32,7 @@ public class GameManagerScript : MonoBehaviourPunCallbacks
         FindObjectOfType<AudioManager>().Play("MainTheme");
         photonView.RPC("AddPlayer", RpcTarget.AllBuffered);
         Players = new List<PlayerController>();
-        pool.SetActive(false);
+       // pool.SetActive(false);
     }
 
     [PunRPC]

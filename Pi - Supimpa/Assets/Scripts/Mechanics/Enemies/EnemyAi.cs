@@ -45,9 +45,12 @@ public class EnemyAi : MonoBehaviourPunCallbacks
     private EnemyPool enemyPool;
 
     bool die = false;
+
+    Collider2D myCollider;
     void Start()
     {
         view = GetComponent<PhotonView>();
+        myCollider = GetComponent<Collider2D>();
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -192,13 +195,22 @@ public class EnemyAi : MonoBehaviourPunCallbacks
         if (die)
         {
             deathCounter -= Time.deltaTime;
-            if(deathCounter < 0)
+            if (deathCounter < 0)
             {
-                rb.velocity = Vector2.zero;
+                deathCounter = deathTime;
                 die = false;
                 photonView.RPC("DieTime", RpcTarget.All);
             }
         }
+    }
+    private void OnDisable()
+    {
+        enemyPool.alienCount--;
+    }
+
+    private void OnEnable()
+    {
+        health.photonView.RPC("Revive", RpcTarget.All);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -223,13 +235,8 @@ public class EnemyAi : MonoBehaviourPunCallbacks
     public void Die()
     {
         die = true;
+        myCollider.enabled = false;
+        rb.velocity = Vector2.zero;
         anim.SetTrigger("Die");
-        photonView.RPC("Desactive", RpcTarget.MasterClient);
-    }
-
-    [PunRPC]
-    public void Desactive()
-    {
-        enemyPool.alienCount++;
     }
 }

@@ -215,13 +215,31 @@ public class PlayerController : MonoBehaviourPunCallbacks //, IPunObservable
         if (horizontal < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            nickDisplay.transform.localScale = new Vector3(-1, 1, 1);
+            if (view.IsMine)
+            {
+                photonView.RPC("FlipNickNegative", RpcTarget.All);
+            }
         }
         else if (horizontal > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            nickDisplay.transform.localScale = new Vector3(1, 1, 1);
+            if (view.IsMine)
+            {
+                photonView.RPC("FlipNickPositive", RpcTarget.All);
+            }
         }
+    }
+
+    [PunRPC]
+    void FlipNickNegative()
+    {
+        nickDisplay.transform.localScale = new Vector3(-1, 1, 1);
+    }
+
+    [PunRPC]
+    void FlipNickPositive()
+    {
+        nickDisplay.transform.localScale = new Vector3(1, 1, 1);
     }
 
     [PunRPC]

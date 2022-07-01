@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Photon.Pun;
 
 public class AlienInvasionQTE : MonoBehaviour
 {
@@ -13,10 +14,11 @@ public class AlienInvasionQTE : MonoBehaviour
     public CycleManager cycleManager;
     public CameraController gameCamera;
     public TMP_Text text;
-    public GameObject pool;
-
+    public EnemyPool pool;
+    List<GameObject> dieEnemys = new();
     private void OnEnable()
     {
+        pool = FindObjectOfType<EnemyPool>();
         aux = timer;
         flag = false;
         stop = false;
@@ -44,13 +46,14 @@ public class AlienInvasionQTE : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("ButtonCorrect");
             StartCoroutine(Delay());
         }
-        else if(timer <= 0)
+        else if (timer <= 0)
         {
             stop = true;
             FindObjectOfType<AudioManager>().Play("ButtonFail");
-            pool.SetActive(true);
+            pool.photonView.RPC("RespawnEnemies", RpcTarget.All);
             StartCoroutine(Delay());
         }
+
     }
 
     public void StopTheInvasion()
